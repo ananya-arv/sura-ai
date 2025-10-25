@@ -3,9 +3,7 @@ from loguru import logger
 import asyncio
 from typing import Optional, Dict, Any, List
 from dotenv import load_dotenv
-from agents.registry import register_agent, get_agent_address, registry
-import aiohttp
-import json
+from agents.registry import register_agent, get_agent_address
 
 class BaseAgentConfig(Model):
     """Base configuration for all agents"""
@@ -76,53 +74,18 @@ class BaseSuraAgent:
         return address
     
     async def send_to_peer(self, ctx: Context, peer_name: str, message: Model) -> bool:
-        """
-        Send message to another agent by name using LOCAL HTTP
-        This bypasses Agentverse and uses direct HTTP communication
-        """
-        # Get peer info from registry (includes port)
-        peer_info = registry.get_agent(peer_name)
-        if not peer_info:
+        """Send message to another agent by name"""
+        address = self.get_peer_address(peer_name)
+        if not address:
             logger.error(f"Cannot send to {peer_name} - not in registry")
             return False
         
         try:
-            # Build local HTTP endpoint
-            endpoint = f"http://localhost:{peer_info.port}/submit"
-            
-            logger.debug(f"Sending to {peer_name} at {endpoint}")
-            
-            # Create payload
-            payload = {
-                "sender": str(self.agent.address),
-                "target": peer_info.address,
-                "message": message.dict(),
-                "message_type": message.__class__.__name__,
-                "schema_digest": message.schema_digest if hasattr(message, 'schema_digest') else ""
-            }
-            
-            # Send via HTTP POST
-            async with aiohttp.ClientSession() as session:
-                async with session.post(
-                    endpoint,
-                    json=payload,
-                    headers={"Content-Type": "application/json"},
-                    timeout=aiohttp.ClientTimeout(total=10)
-                ) as resp:
-                    
-                    if resp.status == 200:
-                        logger.info(f"📤 Sent {message.__class__.__name__} to {peer_name}")
-                        return True
-                    else:
-                        text = await resp.text()
-                        logger.error(f"HTTP {resp.status} from {peer_name}: {text[:100]}")
-                        return False
-            
-        except aiohttp.ClientConnectorError as e:
-            logger.error(f"Cannot connect to {peer_name} at port {peer_info.port}: {e}")
-            return False
+            await ctx.send(address, message)
+            logger.info(f"📤 Sent {message.__class__.__name__} to {peer_name}")
+            return True
         except Exception as e:
-            logger.error(f"Failed to send to {peer_name}: {type(e).__name__}: {e}")
+            logger.error(f"Failed to send to {peer_name}: {e}")
             return False
     
     def get_agent(self):

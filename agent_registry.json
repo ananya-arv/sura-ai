@@ -1,0 +1,45 @@
+{
+  "canary_agent": {
+    "name": "canary_agent",
+    "address": "agent1q03dhrelysm3cmmky82x7xky5wy0dr4tjvnu8ar8n2zw0hjm8zv4x4cw0a3",
+    "port": 8001,
+    "capabilities": [
+      "canary_testing",
+      "deployment_validation"
+    ],
+    "status": "active"
+  },
+  "monitoring_agent": {
+    "name": "monitoring_agent",
+    "address": "agent1q0sx9t9aqpewks6jj3fsgwa2hx9uq4c4eaacnsscerl69fv25aqe6fhfhyq",
+    "port": 8002,
+    "capabilities": [
+      "monitoring",
+      "anomaly_detection",
+      "real_time_polling"
+    ],
+    "status": "active"
+  },
+  "response_agent": {
+    "name": "response_agent",
+    "address": "agent1qg92f9k4tj7tzmn2y87fkkz8jzsdx2ps6h7g56zq37uwzhflajctvgfvusw",
+    "port": 8003,
+    "capabilities": [
+      "incident_response",
+      "autonomous_recovery",
+      "runbook_execution"
+    ],
+    "status": "active"
+  },
+  "communication_agent": {
+    "name": "communication_agent",
+    "address": "agent1qvgnwew95ltse0877yfdyq768lxukwzflrx2dgkrawf92gcwlxl9wh72klg",
+    "port": 8004,
+    "capabilities": [
+      "notifications",
+      "status_updates",
+      "stakeholder_communication"
+    ],
+    "status": "active"
+  }
+}
