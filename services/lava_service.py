@@ -1,11 +1,11 @@
 """
 Lava AI Service for SuraAI - Claude Sonnet 3.5 through Lava's API
-CORRECTED VERSION with proper fallback and error handling
+FIXED VERSION - Proper token detection
 """
 
 import os
 import aiohttp
-from typing import Dict, Any, Optional
+from typing import Dict, Any
 from loguru import logger
 import json
 
@@ -15,63 +15,33 @@ class LavaAIService:
     def __init__(self):
         # Lava configuration
         self.lava_base_url = "https://api.lavapayments.com/v1"
-        self.forward_token = os.getenv("LAVA_FORWARD_TOKEN")  # Changed to match intelligent_response_agent
+        self.lava_token = os.getenv("LAVA_FORWARD_TOKEN")
         
-        # Use Lava's Claude endpoint
+        # Model configuration
         self.model = "claude-sonnet-3-5-20241022"
         
-        # Construct Lava's chat completions URL
+        # Lava endpoint (uses Anthropic's format)
         self.lava_url = f"{self.lava_base_url}/forward?u=https://api.anthropic.com/v1/messages"
         
         # Check if Lava is available
-        self.available = bool(self.forward_token)
+        self.available = bool(self.lava_token)
         
         if self.available:
             logger.info(f"🌊 Lava AI Service initialized")
             logger.info(f"   Model: {self.model}")
-            logger.info(f"   Using Lava credits (no separate API key needed!)")
+            logger.info(f"   Token: {self.lava_token[:15]}...")
+            logger.info(f"   Endpoint: {self.lava_url}")
+            logger.info(f"   ✅ LAVA IS ENABLED")
         else:
             logger.warning("⚠️  LAVA_FORWARD_TOKEN not set - AI features disabled")
-            logger.info("   System will use rule-based decisions (still works!)")
-    
-    async def test_connection(self) -> Dict[str, Any]:
-        """Test Lava connection - ONLY used in test script"""
-        if not self.available:
-            return {"test_request": "SKIPPED", "reason": "No Lava token"}
-        
-        try:
-            test_data = {
-                "alert_id": "TEST-CONNECTION",
-                "severity": "LOW",
-                "system_id": "test",
-                "metric_type": "CPU",
-                "current_value": 50.0,
-                "expected_value": 40.0,
-                "confidence": 0.8
-            }
-            
-            result = await self.analyze_incident(test_data)
-            return {
-                "test_request": "SUCCESS",
-                "lava_request_id": result.get("lava_request_id", "N/A")
-            }
-        except Exception as e:
-            return {"test_request": "FAILED", "error": str(e)}
+            logger.info("   System will use rule-based decisions")
     
     async def analyze_incident(self, incident_data: Dict[str, Any]) -> Dict[str, Any]:
         """
         Analyze incident using Claude Sonnet 3.5 through Lava
-        
-        Returns dict with:
-        - recommendation: str
-        - confidence: float
-        - reasoning: str
-        - severity: str
-        - lava_request_id: str (for tracking)
-        - ai_provider: str
         """
         if not self.available:
-            logger.warning("Lava not available, using fallback")
+            logger.warning("❌ Lava not available - no token!")
             return self._fallback_response()
         
         prompt = self._build_incident_prompt(incident_data)
@@ -79,17 +49,17 @@ class LavaAIService:
         try:
             async with aiohttp.ClientSession() as session:
                 headers = {
-                    "Authorization": f"Bearer {self.forward_token}",
+                    "Authorization": f"Bearer {self.lava_token}",
                     "Content-Type": "application/json"
                 }
                 
-                # OpenAI-style format (Lava handles Claude conversion)
+                # OpenAI-compatible format
                 payload = {
                     "model": self.model,
                     "messages": [
                         {
                             "role": "system",
-                            "content": "You are an expert SRE AI. Respond with JSON only."
+                            "content": "You are an expert SRE AI. Respond ONLY with valid JSON. No markdown, no code blocks, just pure JSON."
                         },
                         {
                             "role": "user",
@@ -100,7 +70,9 @@ class LavaAIService:
                     "max_tokens": 1024
                 }
                 
-                logger.debug(f"🌊 Sending request to Lava...")
+                logger.info(f"🌊 Sending request to Lava...")
+                logger.debug(f"   URL: {self.lava_url}")
+                logger.debug(f"   Model: {self.model}")
                 
                 async with session.post(
                     self.lava_url,
@@ -109,58 +81,76 @@ class LavaAIService:
                     timeout=aiohttp.ClientTimeout(total=30)
                 ) as resp:
                     
+                    response_text = await resp.text()
+                    
                     if resp.status != 200:
-                        error_text = await resp.text()
-                        logger.error(f"Lava error ({resp.status}): {error_text}")
+                        logger.error(f"❌ Lava error ({resp.status})")
+                        logger.error(f"   Response: {response_text[:200]}")
                         return self._fallback_response()
                     
-                    # Get Lava request ID for tracking
+                    # Get Lava request ID
                     lava_request_id = resp.headers.get('x-lava-request-id', 'unknown')
+                    logger.info(f"✅ Lava Request ID: {lava_request_id}")
                     
-                    response_data = await resp.json()
-                    
-                    # Extract Claude's response (OpenAI format)
-                    content = response_data['choices'][0]['message']['content']
-                    
-                    # Parse JSON from Claude's response
                     try:
-                        analysis = json.loads(content)
+                        response_data = json.loads(response_text)
+                    except json.JSONDecodeError as e:
+                        logger.error(f"Failed to parse Lava response as JSON: {e}")
+                        logger.error(f"Raw response: {response_text[:500]}")
+                        return self._fallback_response()
+                    
+                    # Extract Claude's response
+                    try:
+                        content = response_data['choices'][0]['message']['content']
+                        logger.debug(f"Claude response: {content[:200]}")
+                    except (KeyError, IndexError) as e:
+                        logger.error(f"Unexpected response format: {e}")
+                        logger.error(f"Response data: {response_data}")
+                        return self._fallback_response()
+                    
+                    # Parse Claude's JSON response
+                    try:
+                        # Remove markdown code blocks if present
+                        if content.startswith('```'):
+                            content = content.split('```')[1]
+                            if content.startswith('json'):
+                                content = content[4:]
                         
-                        # Add Lava metadata
+                        analysis = json.loads(content.strip())
+                        
+                        # Add metadata
                         analysis['lava_request_id'] = lava_request_id
                         analysis['ai_provider'] = 'Claude Sonnet 3.5 (via Lava)'
                         
-                        # Ensure required fields exist
+                        # Ensure required fields
                         if 'recommendation' not in analysis:
                             analysis['recommendation'] = 'INVESTIGATE'
                         if 'confidence' not in analysis:
-                            analysis['confidence'] = 0.7
+                            analysis['confidence'] = 0.75
                         if 'reasoning' not in analysis:
                             analysis['reasoning'] = 'AI analysis completed'
                         
-                        logger.info(f"✅ Lava Request ID: {lava_request_id}")
-                        logger.debug(f"🧠 Claude recommendation: {analysis.get('recommendation')}")
+                        logger.info(f"✅ Claude analysis successful!")
+                        logger.info(f"   Recommendation: {analysis.get('recommendation')}")
+                        logger.info(f"   Confidence: {analysis.get('confidence'):.2f}")
                         
                         return analysis
                         
                     except json.JSONDecodeError as e:
                         logger.warning(f"Claude response not valid JSON: {e}")
-                        logger.debug(f"Raw content: {content[:200]}")
+                        logger.warning(f"Content: {content[:300]}")
                         return self._parse_natural_language_response(content, lava_request_id)
             
         except aiohttp.ClientError as e:
-            logger.error(f"Lava connection error: {e}")
-            return self._fallback_response()
-        except asyncio.TimeoutError:
-            logger.error("Lava request timed out")
+            logger.error(f"❌ Lava connection error: {e}")
             return self._fallback_response()
         except Exception as e:
-            logger.error(f"Unexpected error in Lava analysis: {e}")
+            logger.error(f"❌ Unexpected error: {type(e).__name__}: {e}")
             return self._fallback_response()
     
     def _build_incident_prompt(self, incident_data: Dict[str, Any]) -> str:
         """Build optimized prompt for Claude via Lava"""
-        return f"""Analyze this production incident and respond ONLY with valid JSON.
+        return f"""Analyze this production incident and respond ONLY with valid JSON (no markdown formatting).
 
 Incident Data:
 - Alert ID: {incident_data.get('alert_id')}
@@ -171,20 +161,20 @@ Incident Data:
 - Expected Value: {incident_data.get('expected_value')}
 - Confidence: {incident_data.get('confidence', 0):.2f}
 
-Respond with this exact JSON structure (no markdown, no extra text):
+Respond with ONLY this JSON (no code blocks, no markdown):
 {{
-    "severity": "LOW|MEDIUM|HIGH|CRITICAL",
+    "severity": "HIGH",
     "root_cause": "brief description",
-    "recommendation": "ROLLBACK|FAILOVER|SCALE_UP|ISOLATE|INVESTIGATE",
-    "confidence": 0.75,
+    "recommendation": "ROLLBACK",
+    "confidence": 0.85,
     "reasoning": "one sentence explanation"
 }}
 
-Be decisive. Production systems depend on fast, accurate decisions."""
+Choose recommendation from: ROLLBACK, FAILOVER, SCALE_UP, ISOLATE, INVESTIGATE, RESTART"""
     
     def _parse_natural_language_response(self, content: str, lava_request_id: str) -> Dict[str, Any]:
         """Parse natural language response if JSON parsing fails"""
-        logger.info("Parsing natural language response from Claude...")
+        logger.info("📝 Parsing natural language response...")
         
         recommendation = "INVESTIGATE"
         content_lower = content.lower()
@@ -197,6 +187,8 @@ Be decisive. Production systems depend on fast, accurate decisions."""
             recommendation = "ISOLATE"
         elif "failover" in content_lower:
             recommendation = "FAILOVER"
+        elif "restart" in content_lower:
+            recommendation = "RESTART"
         
         return {
             "recommendation": recommendation,
@@ -208,82 +200,15 @@ Be decisive. Production systems depend on fast, accurate decisions."""
         }
     
     def _fallback_response(self) -> Dict[str, Any]:
-        """Fallback response when Lava/Claude fails"""
+        """Fallback response when Lava fails"""
         return {
             "recommendation": "INVESTIGATE",
             "confidence": 0.0,
-            "reasoning": "AI analysis unavailable - using fallback",
+            "reasoning": "AI analysis unavailable",
             "severity": "MEDIUM",
             "lava_request_id": "",
             "ai_provider": "Fallback (rule-based)"
         }
-    
-    async def predict_failure(self, metrics: Dict[str, Any]) -> Dict[str, Any]:
-        """Predict failures using Claude through Lava"""
-        if not self.available:
-            return {"failure_probability": 0.0, "failure_type": "NONE"}
-        
-        prompt = f"""Analyze system metrics and predict potential failures. Respond with JSON only.
-
-Metrics:
-- CPU: {metrics.get('cpu_usage', 0):.1f}%
-- Memory: {metrics.get('memory_usage', 0):.1f}%
-- Disk: {metrics.get('disk_usage', 0):.1f}%
-- Network Latency: {metrics.get('network_latency', 0):.1f}ms
-- Error Count: {metrics.get('error_count', 0)}
-
-JSON Response (no markdown):
-{{
-    "failure_probability": 0.5,
-    "failure_type": "MEMORY_LEAK",
-    "time_to_failure_minutes": 30,
-    "preventive_action": "RESTART",
-    "confidence": 0.8
-}}"""
-        
-        try:
-            async with aiohttp.ClientSession() as session:
-                headers = {
-                    "Authorization": f"Bearer {self.forward_token}",
-                    "Content-Type": "application/json"
-                }
-                
-                payload = {
-                    "model": self.model,
-                    "messages": [
-                        {"role": "system", "content": "You are a predictive SRE AI. Output JSON only."},
-                        {"role": "user", "content": prompt}
-                    ],
-                    "temperature": 0.2,
-                    "max_tokens": 512
-                }
-                
-                async with session.post(
-                    self.lava_url,
-                    headers=headers,
-                    json=payload,
-                    timeout=aiohttp.ClientTimeout(total=20)
-                ) as resp:
-                    
-                    if resp.status == 200:
-                        data = await resp.json()
-                        content = data['choices'][0]['message']['content']
-                        
-                        try:
-                            return json.loads(content)
-                        except:
-                            # Fallback parsing
-                            return {
-                                "failure_probability": 0.5,
-                                "failure_type": "UNKNOWN",
-                                "preventive_action": "INVESTIGATE"
-                            }
-                    
-                    return {"failure_probability": 0.0, "failure_type": "NONE"}
-        
-        except Exception as e:
-            logger.error(f"Failure prediction failed: {e}")
-            return {"failure_probability": 0.0, "failure_type": "NONE"}
 
 # Global instance
 lava_service = LavaAIService()
