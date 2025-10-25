@@ -30,7 +30,8 @@ class CanaryAgent(BaseSuraAgent):
         super().__init__(
             name="canary_agent",
             seed=os.getenv("CANARY_SEED_PHRASE"),
-            port=8001
+            port=8001,
+            capabilities=["canary_testing", "deployment_validation"]  # ADD THIS
         )
         
         self.canary_percentage = 0.001  # 0.1% of systems
@@ -53,11 +54,8 @@ class CanaryAgent(BaseSuraAgent):
             result = await self.run_canary_test(ctx, msg)
             
             # Send result to Response Agent
-            await ctx.send(
-                "agent1q2kxet3vh0scsf0sm7y2erzz33cve6tv5uk63x64upw5g68fr9vx44lgw",  # Response agent
-                CanaryTestResult(**result)
-            )
-            
+            await self.send_to_peer(ctx, "response_agent", CanaryTestResult(**result))
+
             logger.info(f"✅ Canary test complete: {result['recommendation']}")
     
     async def run_canary_test(self, ctx: Context, update: UpdatePackage) -> dict:

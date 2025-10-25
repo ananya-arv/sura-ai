@@ -22,7 +22,8 @@ class ResponseAgent(BaseSuraAgent):
         super().__init__(
             name="response_agent",
             seed=os.getenv("RESPONSE_SEED_PHRASE"),
-            port=8003
+            port=8003,
+            capabilities=["incident_response", "autonomous_recovery", "runbook_execution"]  # ADD THIS
         )
         
         self.active_incidents: Dict[str, dict] = {}
@@ -46,10 +47,7 @@ class ResponseAgent(BaseSuraAgent):
                 ctx.storage.set("actions_taken", ctx.storage.get("actions_taken") + 1)
                 
                 # Notify Communication Agent
-                await ctx.send(
-                    "agent1q...",  # Communication agent address
-                    action
-                )
+                await self.send_to_peer(ctx, "communication_agent", action)
         
         @self.agent.on_message(model=AnomalyAlert)
         async def handle_anomaly(ctx: Context, sender: str, msg: AnomalyAlert):
@@ -60,10 +58,7 @@ class ResponseAgent(BaseSuraAgent):
                 ctx.storage.set("actions_taken", ctx.storage.get("actions_taken") + 1)
                 
                 # Notify Communication Agent
-                await ctx.send(
-                    "agent1q...",  # Communication agent address
-                    action
-                )
+                await self.send_to_peer(ctx, "communication_agent", action)
     
     def load_runbooks(self) -> Dict[str, callable]:
         """Load automated response runbooks"""

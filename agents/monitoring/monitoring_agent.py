@@ -36,7 +36,8 @@ class MonitoringAgent(BaseSuraAgent):
         super().__init__(
             name="monitoring_agent",
             seed="monitoring_seed_phrase_67890",
-            port=8002
+            port=8002,
+            capabilities=["monitoring", "anomaly_detection", "real_time_polling"]  # ADD THIS
         )
         
         self.monitoring_interval = 5  # seconds
@@ -81,10 +82,7 @@ class MonitoringAgent(BaseSuraAgent):
                                       ctx.storage.get("anomalies_detected") + 1)
                         
                         # Send alert to Response Agent
-                        await ctx.send(
-                            "agent1q2kxet3vh0scsf0sm7y2erzz33cve6tv5uk63x64upw5g68fr9vx44lgw",
-                            anomaly
-                        )
+                        await self.send_to_peer(ctx, "response_agent", anomaly)
                 
                 except Exception as e:
                     logger.error(f"Error monitoring {system_id}: {e}")

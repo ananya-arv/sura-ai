@@ -4,11 +4,11 @@ from uagents import Context
 from loguru import logger
 
 class IntelligentResponseAgent(ResponseAgent):
-    """Enhanced Response Agent with Lava AI"""
+    """Enhanced Response Agent with Groq AI"""
     
     async def execute_emergency_response(self, ctx: Context, alert) -> ResponseAction:
         """AI-enhanced emergency response"""
-        logger.info(f"🤖 Using Lava AI for incident analysis...")
+        logger.info(f"🤖 Using Groq AI for incident analysis...")
         
         # Prepare incident data
         incident_data = {

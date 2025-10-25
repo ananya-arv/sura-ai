@@ -1,7 +1,8 @@
 from uagents import Agent, Context, Model
 from loguru import logger
 import asyncio
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
+from agents.registry import register_agent, get_agent_address
 
 class BaseAgentConfig(Model):
     """Base configuration for all agents"""
@@ -18,7 +19,14 @@ class AgentMessage(Model):
     timestamp: float
 
 class BaseSuraAgent:
-    def __init__(self, name: str, seed: str, port: int, endpoint: Optional[str] = None):
+    def __init__(
+        self, 
+        name: str, 
+        seed: str, 
+        port: int, 
+        capabilities: List[str] = None,
+        endpoint: Optional[str] = None
+    ):
         self.agent = Agent(
             name=name,
             seed=seed,
@@ -26,6 +34,7 @@ class BaseSuraAgent:
             endpoint=endpoint or f"http://localhost:{port}/submit"
         )
         self.name = name
+        self.capabilities = capabilities or []
         
         # Setup logging
         logger.add(
@@ -36,6 +45,46 @@ class BaseSuraAgent:
         )
         
         logger.info(f"{name} initialized with address: {self.agent.address}")
+        
+        # Auto-register in registry
+        self.register_self()
+    
+    def register_self(self):
+        """Register this agent in the global registry"""
+        try:
+            register_agent(
+                name=self.name,
+                address=str(self.agent.address),
+                port=self.agent._port,
+                capabilities=self.capabilities
+            )
+            logger.info(f"✅ Registered {self.name} in agent registry")
+        except Exception as e:
+            logger.error(f"Failed to register agent: {e}")
+    
+    def get_peer_address(self, peer_name: str) -> Optional[str]:
+        """Get another agent's address from registry"""
+        address = get_agent_address(peer_name)
+        if address:
+            logger.debug(f"Found {peer_name} at {address[:20]}...")
+        else:
+            logger.warning(f"Agent {peer_name} not found in registry")
+        return address
+    
+    async def send_to_peer(self, ctx: Context, peer_name: str, message: Model) -> bool:
+        """Send message to another agent by name"""
+        address = self.get_peer_address(peer_name)
+        if not address:
+            logger.error(f"Cannot send to {peer_name} - not in registry")
+            return False
+        
+        try:
+            await ctx.send(address, message)
+            logger.info(f"📤 Sent {message.__class__.__name__} to {peer_name}")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to send to {peer_name}: {e}")
+            return False
     
     def get_agent(self):
         return self.agent

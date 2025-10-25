@@ -21,7 +21,8 @@ class CommunicationAgent(BaseSuraAgent):
         super().__init__(
             name="communication_agent",
             seed=os.getenv("COMMUNICATION_SEED_PHRASE"),
-            port=8004
+            port=8004,
+            capabilities=["notifications", "status_updates", "stakeholder_communication"]  # ADD THIS
         )
         
         self.status_page = []
