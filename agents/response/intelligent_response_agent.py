@@ -1,5 +1,5 @@
 from agents.response.response_agent import ResponseAgent, ResponseAction
-from services.lava_service import lava_service
+from services.groq_service import groq_service
 from uagents import Context
 from loguru import logger
 
@@ -22,7 +22,7 @@ class IntelligentResponseAgent(ResponseAgent):
         }
         
         # Get AI analysis
-        ai_analysis = await lava_service.analyze_incident(incident_data)
+        ai_analysis = await groq_service.analyze_incident(incident_data)
         
         logger.info(f"🧠 AI Recommendation: {ai_analysis.get('recommendation')} "
                    f"(confidence: {ai_analysis.get('confidence', 0):.2f})")

@@ -1,4 +1,5 @@
 from uagents import Context, Model
+import os
 from agents.base_agent import BaseSuraAgent, AgentMessage
 from typing import Optional, List
 import asyncio
@@ -28,7 +29,7 @@ class CanaryAgent(BaseSuraAgent):
     def __init__(self):
         super().__init__(
             name="canary_agent",
-            seed="canary_seed_phrase_12345",
+            seed=os.getenv("CANARY_SEED_PHRASE"),
             port=8001
         )
         

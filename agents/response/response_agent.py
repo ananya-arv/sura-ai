@@ -1,4 +1,5 @@
 from uagents import Context, Model
+import os
 from agents.base_agent import BaseSuraAgent
 from agents.canary.canary_agent import CanaryTestResult
 from agents.monitoring.monitoring_agent import AnomalyAlert
@@ -20,7 +21,7 @@ class ResponseAgent(BaseSuraAgent):
     def __init__(self):
         super().__init__(
             name="response_agent",
-            seed="response_seed_phrase_11111",
+            seed=os.getenv("RESPONSE_SEED_PHRASE"),
             port=8003
         )
         

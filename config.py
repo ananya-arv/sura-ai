@@ -4,12 +4,14 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    # API Keys
-    LAVA_API_KEY = os.getenv("LAVA_API_KEY")
-    LAVA_ENDPOINT = os.getenv("LAVA_ENDPOINT", "https://api.lavanet.xyz")
+    # Groq
+    GROQ_API_KEY = os.getenv("GROQ_API_KEY")
     
-    # Fetch.ai
-    FETCH_SEED_PHRASE = os.getenv("FETCH_AI_SEED_PHRASE")
+    # Fetch.ai Agentverse
+    CANARY_SEED_PHRASE = os.getenv("CANARY_SEED_PHRASE")
+    MONITORING_SEED_PHRASE = os.getenv("MONITORING_SEED_PHRASE")
+    RESPONSE_SEED_PHRASE = os.getenv("RESPONSE_SEED_PHRASE")
+    COMMUNICATION_SEED_PHRASE = os.getenv("COMMUNICATION_SEED_PHRASE")
     
     # Application
     ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
@@ -17,8 +19,8 @@ class Config:
     API_PORT = int(os.getenv("API_PORT", 8000))
     
     # Agent Settings
-    CANARY_PERCENTAGE = 0.001  # 0.1% of systems
-    MONITORING_INTERVAL = 5  # seconds
-    ALERT_THRESHOLD = 0.8  # 80% confidence for alerts
+    CANARY_PERCENTAGE = 0.001
+    MONITORING_INTERVAL = 5
+    ALERT_THRESHOLD = 0.8
 
 config = Config()

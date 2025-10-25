@@ -1,4 +1,6 @@
 from uagents import Context, Model
+import os
+from services.groq_service import groq_service
 from agents.base_agent import BaseSuraAgent
 import asyncio
 import psutil
@@ -34,7 +36,7 @@ class MonitoringAgent(BaseSuraAgent):
     def __init__(self):
         super().__init__(
             name="monitoring_agent",
-            seed="monitoring_seed_phrase_67890",
+            seed=os.getenv("MONITORING_SEED_PHRASE"),
             port=8002
         )
         
@@ -142,6 +144,19 @@ class MonitoringAgent(BaseSuraAgent):
         baseline["memory"] = alpha * metrics.memory_usage + (1 - alpha) * baseline["memory"]
         
         return None
+    
+        # Add AI prediction
+        prediction = groq_service.predict_failure({
+            'cpu_usage': metrics.cpu_usage,
+            'memory_usage': metrics.memory_usage,
+            'disk_usage': metrics.disk_usage,
+            'network_latency': metrics.network_latency,
+            'error_count': metrics.error_count
+        })
+    
+        if prediction.get('failure_probability', 0) > 0.7:
+            logger.warning(f"⚠️ Predicted failure: {prediction.get('failure_type')}")
+            # Create proactive alert... 
 
 monitoring_agent = MonitoringAgent()
 agent = monitoring_agent.get_agent()

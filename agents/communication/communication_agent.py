@@ -1,4 +1,5 @@
 from uagents import Context, Model
+import os
 from agents.base_agent import BaseSuraAgent
 from agents.response.response_agent import ResponseAction
 from typing import List
@@ -19,7 +20,7 @@ class CommunicationAgent(BaseSuraAgent):
     def __init__(self):
         super().__init__(
             name="communication_agent",
-            seed="communication_seed_phrase_22222",
+            seed=os.getenv("COMMUNICATION_SEED_PHRASE"),
             port=8004
         )
         
