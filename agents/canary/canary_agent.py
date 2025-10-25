@@ -33,7 +33,7 @@ class CanaryAgent(BaseSuraAgent):
             name="canary_agent",
             seed=os.getenv("CANARY_SEED_PHRASE"),
             port=8001,
-            capabilities=["canary_testing", "deployment_validation"]  # ADD THIS
+            capabilities=["canary_testing", "deployment_validation"],  # ADD THIS
         )
         
         self.canary_percentage = 0.001  # 0.1% of systems

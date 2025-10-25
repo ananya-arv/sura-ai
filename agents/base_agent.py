@@ -1,11 +1,12 @@
 from uagents import Agent, Context, Model
 from loguru import logger
-import asyncio
+import os
 from typing import Optional, Dict, Any, List
+from agents.registry import register_agent, get_agent_address, registry # Keep registry import
+
+# Note: load_dotenv() should be called at the top of each agent's main file (e.g., canary_agent.py)
+# but for simplicity, we'll keep it here for guaranteed access to OS environment variables.
 from dotenv import load_dotenv
-from agents.registry import register_agent, get_agent_address, registry
-import aiohttp
-import json
 
 class BaseAgentConfig(Model):
     """Base configuration for all agents"""
@@ -31,11 +32,16 @@ class BaseSuraAgent:
         endpoint: Optional[str] = None
     ):
         load_dotenv()
+        
+        # 🎯 FIX 1: Initialize for Mailbox mode. 
+        # Setting mailbox=True ensures Agentverse can route messages to you.
+        # We also keep the local port for local-to-local communication
         self.agent = Agent(
             name=name,
             seed=seed,
             port=port,
-            endpoint=endpoint or f"http://localhost:{port}/submit"
+            mailbox=True, 
+            endpoint=None
         )
         self.name = name
         self.capabilities = capabilities or []
@@ -48,7 +54,9 @@ class BaseSuraAgent:
             level="INFO"
         )
         
-        logger.info(f"{name} initialized with address: {self.agent.address}")
+        logger.info(f"✅ {name} initialized (Mailbox mode enabled)")
+        logger.info(f"   Address: {self.agent.address}")
+        logger.info(f"   Port: {port}")
         
         # Auto-register in registry
         self.register_self()
@@ -62,13 +70,14 @@ class BaseSuraAgent:
                 port=self.agent._port,
                 capabilities=self.capabilities
             )
-            logger.info(f"✅ Registered {self.name} in agent registry")
+            logger.info(f"📝 Registered {self.name} in agent registry")
         except Exception as e:
             logger.error(f"Failed to register agent: {e}")
     
     def get_peer_address(self, peer_name: str) -> Optional[str]:
         """Get another agent's address from registry"""
-        address = get_agent_address(peer_name)
+        # This function fetches the local address for local-to-local agent communication
+        address = get_agent_address(peer_name) 
         if address:
             logger.debug(f"Found {peer_name} at {address[:20]}...")
         else:
@@ -77,52 +86,21 @@ class BaseSuraAgent:
     
     async def send_to_peer(self, ctx: Context, peer_name: str, message: Model) -> bool:
         """
-        Send message to another agent by name using LOCAL HTTP
-        This bypasses Agentverse and uses direct HTTP communication
+        🎯 FIX 2: Revert to standard uAgents routing (ctx.send).
+        This method automatically handles all routing: local HTTP, remote Mailbox, or Almanac.
         """
-        # Get peer info from registry (includes port)
-        peer_info = registry.get_agent(peer_name)
-        if not peer_info:
-            logger.error(f"Cannot send to {peer_name} - not in registry")
+        address = self.get_peer_address(peer_name)
+        if not address:
+            logger.error(f"❌ Cannot send to {peer_name} - not in registry")
             return False
         
         try:
-            # Build local HTTP endpoint
-            endpoint = f"http://localhost:{peer_info.port}/submit"
-            
-            logger.debug(f"Sending to {peer_name} at {endpoint}")
-            
-            # Create payload
-            payload = {
-                "sender": str(self.agent.address),
-                "target": peer_info.address,
-                "message": message.dict(),
-                "message_type": message.__class__.__name__,
-                "schema_digest": message.schema_digest if hasattr(message, 'schema_digest') else ""
-            }
-            
-            # Send via HTTP POST
-            async with aiohttp.ClientSession() as session:
-                async with session.post(
-                    endpoint,
-                    json=payload,
-                    headers={"Content-Type": "application/json"},
-                    timeout=aiohttp.ClientTimeout(total=10)
-                ) as resp:
-                    
-                    if resp.status == 200:
-                        logger.info(f"📤 Sent {message.__class__.__name__} to {peer_name}")
-                        return True
-                    else:
-                        text = await resp.text()
-                        logger.error(f"HTTP {resp.status} from {peer_name}: {text[:100]}")
-                        return False
-            
-        except aiohttp.ClientConnectorError as e:
-            logger.error(f"Cannot connect to {peer_name} at port {peer_info.port}: {e}")
-            return False
+            # Use the standard uagents send function
+            await ctx.send(address, message)
+            logger.info(f"✅ Sent {message.__class__.__name__} to {peer_name}")
+            return True
         except Exception as e:
-            logger.error(f"Failed to send to {peer_name}: {type(e).__name__}: {e}")
+            logger.error(f"❌ Failed to send to {peer_name}: {e}")
             return False
     
     def get_agent(self):
