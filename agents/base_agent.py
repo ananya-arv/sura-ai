@@ -2,6 +2,7 @@ from uagents import Agent, Context, Model
 from loguru import logger
 import asyncio
 from typing import Optional, Dict, Any, List
+from dotenv import load_dotenv
 from agents.registry import register_agent, get_agent_address
 
 class BaseAgentConfig(Model):
@@ -27,6 +28,7 @@ class BaseSuraAgent:
         capabilities: List[str] = None,
         endpoint: Optional[str] = None
     ):
+        load_dotenv()
         self.agent = Agent(
             name=name,
             seed=seed,

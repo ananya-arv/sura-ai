@@ -8,6 +8,8 @@ import aiohttp
 from typing import Dict, Any
 from loguru import logger
 import json
+from dotenv import load_dotenv
+load_dotenv()
 
 class LavaAIService:
     """Integration with Lava Gateway - Claude through Lava's infrastructure"""

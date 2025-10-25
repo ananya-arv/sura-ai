@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 import json
 import os
 from loguru import logger
+from dotenv import load_dotenv
 from pathlib import Path
 
 @dataclass

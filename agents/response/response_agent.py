@@ -11,6 +11,7 @@ from agents.monitoring.monitoring_agent import AnomalyAlert
 from typing import Dict, List
 from loguru import logger
 from datetime import datetime
+from dotenv import load_dotenv
 import asyncio
 
 class ResponseAction(Model):
@@ -26,6 +27,7 @@ class ResponseAgent(BaseSuraAgent):
     """Basic Response Agent with rule-based decisions"""
     
     def __init__(self):
+        load_dotenv()
         super().__init__(
             name="response_agent",
             seed=os.getenv("RESPONSE_SEED_PHRASE", "response_seed_default_67890"),

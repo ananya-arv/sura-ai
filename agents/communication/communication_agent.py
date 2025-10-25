@@ -4,6 +4,7 @@ from agents.base_agent import BaseSuraAgent
 from agents.response.response_agent import ResponseAction
 from typing import List
 from loguru import logger
+from dotenv import load_dotenv
 from datetime import datetime
 import json
 
@@ -18,6 +19,7 @@ class StatusUpdate(Model):
 
 class CommunicationAgent(BaseSuraAgent):
     def __init__(self):
+        load_dotenv()
         super().__init__(
             name="communication_agent",
             seed=os.getenv("COMMUNICATION_SEED_PHRASE"),

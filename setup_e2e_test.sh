@@ -64,7 +64,7 @@ echo "   Communication PID: $COMMUNICATION_PID"
 
 # Wait for agents to register
 echo -e "\n${YELLOW}3️⃣  Waiting for agent registration...${NC}"
-sleep 5
+sleep 10
 
 # Check registry
 if [ -f "agent_registry.json" ]; then

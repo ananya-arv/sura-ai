@@ -5,6 +5,7 @@ from typing import Optional, List
 import asyncio
 import random
 from loguru import logger
+from dotenv import load_dotenv
 from datetime import datetime
 
 class UpdatePackage(Model):
@@ -27,6 +28,7 @@ class CanaryTestResult(Model):
 
 class CanaryAgent(BaseSuraAgent):
     def __init__(self):
+        load_dotenv()
         super().__init__(
             name="canary_agent",
             seed=os.getenv("CANARY_SEED_PHRASE"),

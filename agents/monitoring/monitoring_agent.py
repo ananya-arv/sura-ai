@@ -7,6 +7,7 @@ import asyncio
 import aiohttp
 from typing import Dict, List, Optional
 from loguru import logger
+from dotenv import load_dotenv
 from datetime import datetime
 
 class SystemMetrics(Model):
@@ -33,6 +34,7 @@ class AnomalyAlert(Model):
 
 class MonitoringAgent(BaseSuraAgent):
     def __init__(self):
+        load_dotenv()
         super().__init__(
             name="monitoring_agent",
             seed="monitoring_seed_phrase_67890",
