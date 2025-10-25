@@ -1,3 +1,8 @@
+"""
+Basic Response Agent - Rule-based decisions only
+This is the fallback version that works without AI
+"""
+
 from uagents import Context, Model
 import os
 from agents.base_agent import BaseSuraAgent
@@ -11,19 +16,21 @@ import asyncio
 class ResponseAction(Model):
     """Action taken by response agent"""
     action_id: str
-    action_type: str  # "ROLLBACK", "FAILOVER", "SCALE", "ISOLATE"
+    action_type: str
     target_systems: List[str]
     reason: str
-    status: str  # "INITIATED", "IN_PROGRESS", "COMPLETED", "FAILED"
+    status: str
     timestamp: float
 
 class ResponseAgent(BaseSuraAgent):
+    """Basic Response Agent with rule-based decisions"""
+    
     def __init__(self):
         super().__init__(
             name="response_agent",
-            seed=os.getenv("RESPONSE_SEED_PHRASE"),
+            seed=os.getenv("RESPONSE_SEED_PHRASE", "response_seed_default_67890"),
             port=8003,
-            capabilities=["incident_response", "autonomous_recovery", "runbook_execution"]  # ADD THIS
+            capabilities=["incident_response", "autonomous_recovery", "runbook_execution"]
         )
         
         self.active_incidents: Dict[str, dict] = {}
@@ -35,6 +42,7 @@ class ResponseAgent(BaseSuraAgent):
         @self.agent.on_event("startup")
         async def startup(ctx: Context):
             logger.info(f"🚑 Response Agent started at {self.agent.address}")
+            logger.info(f"📋 Mode: Rule-Based Decisions")
             ctx.storage.set("actions_taken", 0)
             ctx.storage.set("incidents_resolved", 0)
         
@@ -66,7 +74,9 @@ class ResponseAgent(BaseSuraAgent):
             "ROLLBACK": self.runbook_rollback,
             "FAILOVER": self.runbook_failover,
             "SCALE_UP": self.runbook_scale_up,
-            "ISOLATE": self.runbook_isolate
+            "ISOLATE": self.runbook_isolate,
+            "INVESTIGATE": self.runbook_investigate,
+            "RESTART": self.runbook_restart
         }
     
     async def execute_rollback(self, ctx: Context, update_id: str, reason: str) -> ResponseAction:
@@ -92,60 +102,99 @@ class ResponseAgent(BaseSuraAgent):
         return action
     
     async def execute_emergency_response(self, ctx: Context, alert: AnomalyAlert) -> ResponseAction:
-        """Execute emergency response based on anomaly"""
+        """Execute emergency response based on rule-based decision"""
         logger.info(f"⚡ Executing emergency response for {alert.alert_id}")
+        logger.info(f"📋 Using rule-based decision logic...")
         
-        # Determine action based on recommendation
-        if alert.recommendation == "ROLLBACK_IMMEDIATELY":
-            action_type = "ROLLBACK"
-            runbook = self.runbooks["ROLLBACK"]
-        elif "HIGH_CPU" in alert.recommendation:
-            action_type = "SCALE_UP"
-            runbook = self.runbooks["SCALE_UP"]
-        else:
-            action_type = "ISOLATE"
-            runbook = self.runbooks["ISOLATE"]
+        # Determine action based on alert
+        action_type = self._rule_based_decision(alert)
+        reasoning = f"Rule-based: {alert.metric_type} anomaly detected"
+        
+        logger.info(f"✅ Decision: {action_type}")
         
         action = ResponseAction(
             action_id=f"ACTION-{int(datetime.now().timestamp())}",
             action_type=action_type,
             target_systems=[alert.system_id],
-            reason=f"Anomaly detected: {alert.metric_type} = {alert.current_value}",
+            reason=reasoning,
             status="INITIATED",
             timestamp=datetime.now().timestamp()
         )
         
         # Execute runbook
-        await runbook(alert.system_id)
+        if action_type in self.runbooks:
+            await self.runbooks[action_type](alert.system_id)
+            action.status = "COMPLETED"
+        else:
+            logger.error(f"Unknown action type: {action_type}")
+            action.status = "FAILED"
         
-        action.status = "COMPLETED"
         ctx.storage.set("incidents_resolved", ctx.storage.get("incidents_resolved") + 1)
         
         return action
     
+    def _rule_based_decision(self, alert: AnomalyAlert) -> str:
+        """Rule-based decision logic derived from SRE best practices"""
+        
+        # Critical errors
+        if alert.recommendation == "ROLLBACK_IMMEDIATELY":
+            return "ROLLBACK"
+        
+        # CPU issues
+        if "CPU" in alert.metric_type or "HIGH_CPU" in alert.recommendation:
+            if alert.current_value > 90:
+                return "RESTART"
+            return "SCALE_UP"
+        
+        # Memory issues
+        if "MEMORY" in alert.metric_type:
+            if alert.current_value > 95:
+                return "RESTART"
+            return "INVESTIGATE"
+        
+        # High severity
+        if alert.severity == "HIGH":
+            return "ISOLATE"
+        
+        # Default
+        return "INVESTIGATE"
+    
+    # Runbooks
     async def runbook_rollback(self, target):
         """Rollback runbook"""
         logger.info(f"📖 Running ROLLBACK runbook on {target}")
-        await asyncio.sleep(2)  # Simulate rollback time
-        logger.info(f"✅ Rollback complete")
+        await asyncio.sleep(2)
+        logger.info(f"   ✅ Rollback complete")
     
     async def runbook_failover(self, target):
         """Failover runbook"""
         logger.info(f"📖 Running FAILOVER runbook on {target}")
         await asyncio.sleep(3)
-        logger.info(f"✅ Failover complete")
+        logger.info(f"   ✅ Failover complete")
     
     async def runbook_scale_up(self, target):
         """Scale up runbook"""
         logger.info(f"📖 Running SCALE_UP runbook on {target}")
         await asyncio.sleep(2)
-        logger.info(f"✅ Scale up complete")
+        logger.info(f"   ✅ Scale up complete")
     
     async def runbook_isolate(self, target):
         """Isolate system runbook"""
         logger.info(f"📖 Running ISOLATE runbook on {target}")
         await asyncio.sleep(1)
-        logger.info(f"✅ System isolated")
+        logger.info(f"   ✅ System isolated")
+    
+    async def runbook_investigate(self, target):
+        """Investigate runbook"""
+        logger.info(f"📖 Running INVESTIGATE runbook on {target}")
+        await asyncio.sleep(1)
+        logger.info(f"   ✅ Investigation initiated")
+    
+    async def runbook_restart(self, target):
+        """Restart runbook"""
+        logger.info(f"📖 Running RESTART runbook on {target}")
+        await asyncio.sleep(2)
+        logger.info(f"   ✅ Restart complete")
 
 response_agent = ResponseAgent()
 agent = response_agent.get_agent()
