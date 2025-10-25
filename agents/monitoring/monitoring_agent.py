@@ -1,14 +1,13 @@
+"""
+Enhanced Monitoring Agent - Collects metrics from mock infrastructure API
+"""
 from uagents import Context, Model
-import os
-from services.groq_service import groq_service
 from agents.base_agent import BaseSuraAgent
 import asyncio
-import psutil
-import requests
-from typing import Dict, List
+import aiohttp
+from typing import Dict, List, Optional
 from loguru import logger
 from datetime import datetime
-import random
 
 class SystemMetrics(Model):
     """Real-time system metrics"""
@@ -36,13 +35,14 @@ class MonitoringAgent(BaseSuraAgent):
     def __init__(self):
         super().__init__(
             name="monitoring_agent",
-            seed=os.getenv("MONITORING_SEED_PHRASE"),
+            seed="monitoring_seed_phrase_67890",
             port=8002
         )
         
         self.monitoring_interval = 5  # seconds
         self.baseline_metrics: Dict[str, Dict] = {}
         self.anomaly_threshold = 0.8
+        self.mock_infrastructure_url = "http://localhost:8000"  # Mock API
         
         self.setup_handlers()
     
@@ -54,50 +54,94 @@ class MonitoringAgent(BaseSuraAgent):
             
             # Start continuous monitoring
             asyncio.create_task(self.monitor_loop(ctx))
-        
-        @self.agent.on_interval(period=self.monitoring_interval)
-        async def monitor_systems(ctx: Context):
-            # This runs every 5 seconds
-            pass
     
     async def monitor_loop(self, ctx: Context):
-        """Continuous monitoring loop"""
-        monitored_systems = [f"server-{i}" for i in range(10)]  # Mock systems
+        """Continuous monitoring loop - pulls from mock infrastructure"""
+        
+        # Get list of systems from mock infrastructure
+        systems = await self.get_monitored_systems()
+        logger.info(f"📊 Monitoring {len(systems)} systems")
         
         while True:
-            for system_id in monitored_systems:
-                metrics = await self.collect_metrics(system_id)
-                anomaly = await self.detect_anomaly(system_id, metrics)
-                
-                if anomaly:
-                    logger.warning(f"🚨 ANOMALY DETECTED on {system_id}")
-                    ctx.storage.set("anomalies_detected", ctx.storage.get("anomalies_detected") + 1)
+            for system_id in systems:
+                try:
+                    # Collect real metrics from mock API
+                    metrics = await self.collect_metrics(system_id)
                     
-                    # Send alert to Response Agent
-                    await ctx.send(
-                        "agent1q2kxet3vh0scsf0sm7y2erzz33cve6tv5uk63x64upw5g68fr9vx44lgw",
-                        anomaly
-                    )
+                    # Detect anomalies
+                    anomaly = await self.detect_anomaly(system_id, metrics)
+                    
+                    if anomaly:
+                        logger.warning(f"🚨 ANOMALY DETECTED on {system_id}")
+                        logger.warning(f"   Metric: {anomaly.metric_type}")
+                        logger.warning(f"   Current: {anomaly.current_value:.2f}")
+                        logger.warning(f"   Expected: {anomaly.expected_value:.2f}")
+                        
+                        ctx.storage.set("anomalies_detected", 
+                                      ctx.storage.get("anomalies_detected") + 1)
+                        
+                        # Send alert to Response Agent
+                        await ctx.send(
+                            "agent1q2kxet3vh0scsf0sm7y2erzz33cve6tv5uk63x64upw5g68fr9vx44lgw",
+                            anomaly
+                        )
+                
+                except Exception as e:
+                    logger.error(f"Error monitoring {system_id}: {e}")
             
             await asyncio.sleep(self.monitoring_interval)
     
+    async def get_monitored_systems(self) -> List[str]:
+        """Get list of systems from mock infrastructure"""
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(f"{self.mock_infrastructure_url}/systems") as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        return data.get("systems", [])[:10]  # Monitor first 10 for demo
+                    else:
+                        logger.error(f"Failed to get systems: {resp.status}")
+                        return []
+        except Exception as e:
+            logger.error(f"Failed to connect to mock infrastructure: {e}")
+            return [f"server-{i}" for i in range(10)]  # Fallback
+    
     async def collect_metrics(self, system_id: str) -> SystemMetrics:
-        """Collect metrics from a system"""
-        # In production, this would call actual monitoring APIs
-        # For demo, we simulate with psutil + randomness
+        """
+        Collect REAL metrics from mock infrastructure API
+        This replaces the psutil simulation
+        """
+        try:
+            async with aiohttp.ClientSession() as session:
+                async with session.get(
+                    f"{self.mock_infrastructure_url}/system/{system_id}"
+                ) as resp:
+                    if resp.status == 200:
+                        data = await resp.json()
+                        
+                        # Extract metrics from mock infrastructure response
+                        return SystemMetrics(
+                            system_id=system_id,
+                            cpu_usage=data.get("cpu", 0.0),
+                            memory_usage=data.get("memory", 0.0),
+                            disk_usage=50.0,  # Mock doesn't track this yet
+                            network_latency=20.0,  # Can add to mock later
+                            error_count=0 if data.get("status") == "healthy" else 10,
+                            timestamp=datetime.now().timestamp()
+                        )
+                    else:
+                        logger.error(f"System {system_id} not found")
+                        return None
         
-        return SystemMetrics(
-            system_id=system_id,
-            cpu_usage=psutil.cpu_percent() + random.uniform(-10, 10),
-            memory_usage=psutil.virtual_memory().percent + random.uniform(-5, 5),
-            disk_usage=psutil.disk_usage('/').percent,
-            network_latency=random.uniform(10, 50),
-            error_count=random.randint(0, 5),
-            timestamp=datetime.now().timestamp()
-        )
+        except Exception as e:
+            logger.error(f"Failed to collect metrics for {system_id}: {e}")
+            return None
     
     async def detect_anomaly(self, system_id: str, metrics: SystemMetrics) -> Optional[AnomalyAlert]:
         """Detect if metrics indicate an anomaly"""
+        
+        if not metrics:
+            return None
         
         # Get or create baseline for this system
         if system_id not in self.baseline_metrics:
@@ -107,12 +151,14 @@ class MonitoringAgent(BaseSuraAgent):
                 "latency": metrics.network_latency,
                 "errors": metrics.error_count
             }
+            logger.info(f"📊 Established baseline for {system_id}")
             return None
         
         baseline = self.baseline_metrics[system_id]
         
-        # Check for anomalies
-        if metrics.cpu_usage > baseline["cpu"] * 2.0:  # 2x normal CPU
+        # Check for CPU anomaly (2x normal)
+        if metrics.cpu_usage > baseline["cpu"] * 2.0:
+            logger.warning(f"⚠️  CPU anomaly: {metrics.cpu_usage:.1f}% vs baseline {baseline['cpu']:.1f}%")
             return AnomalyAlert(
                 alert_id=f"ALERT-{system_id}-{int(datetime.now().timestamp())}",
                 severity="HIGH",
@@ -125,7 +171,9 @@ class MonitoringAgent(BaseSuraAgent):
                 recommendation="INVESTIGATE_HIGH_CPU"
             )
         
+        # Check for error count spike
         if metrics.error_count > 10:
+            logger.warning(f"⚠️  Error spike: {metrics.error_count} errors detected")
             return AnomalyAlert(
                 alert_id=f"ALERT-{system_id}-{int(datetime.now().timestamp())}",
                 severity="CRITICAL",
@@ -138,25 +186,27 @@ class MonitoringAgent(BaseSuraAgent):
                 recommendation="ROLLBACK_IMMEDIATELY"
             )
         
+        # Check for memory anomaly
+        if metrics.memory_usage > baseline["memory"] * 1.8:
+            logger.warning(f"⚠️  Memory anomaly: {metrics.memory_usage:.1f}% vs baseline {baseline['memory']:.1f}%")
+            return AnomalyAlert(
+                alert_id=f"ALERT-{system_id}-{int(datetime.now().timestamp())}",
+                severity="MEDIUM",
+                system_id=system_id,
+                metric_type="MEMORY",
+                current_value=metrics.memory_usage,
+                expected_value=baseline["memory"],
+                confidence=0.85,
+                timestamp=datetime.now().timestamp(),
+                recommendation="INVESTIGATE_MEMORY_LEAK"
+            )
+        
         # Update baseline (exponential moving average)
         alpha = 0.1
         baseline["cpu"] = alpha * metrics.cpu_usage + (1 - alpha) * baseline["cpu"]
         baseline["memory"] = alpha * metrics.memory_usage + (1 - alpha) * baseline["memory"]
         
         return None
-    
-        # Add AI prediction
-        prediction = groq_service.predict_failure({
-            'cpu_usage': metrics.cpu_usage,
-            'memory_usage': metrics.memory_usage,
-            'disk_usage': metrics.disk_usage,
-            'network_latency': metrics.network_latency,
-            'error_count': metrics.error_count
-        })
-    
-        if prediction.get('failure_probability', 0) > 0.7:
-            logger.warning(f"⚠️ Predicted failure: {prediction.get('failure_type')}")
-            # Create proactive alert... 
 
 monitoring_agent = MonitoringAgent()
 agent = monitoring_agent.get_agent()
