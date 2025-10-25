@@ -1,46 +1,62 @@
 """
-COMPLETE END-TO-END TEST PIPELINE
-Tests all 4 agents working together with full disaster recovery scenarios
-
-This simulates real-world incidents like AWS/CrowdStrike outages:
-1. Bad updates caught by Canary before wide deployment
-2. Real-time anomaly detection by Monitoring
-3. Autonomous recovery by Response Agent
-4. Stakeholder notifications by Communication Agent
+COMPLETE END-TO-END TEST PIPELINE - AGENTVERSE MAILBOX MODE
+Tests all 4 agents working together via Agentverse mailbox
 
 Prerequisites:
-1. Start mock infrastructure: python services/mock_infrastructure.py (MUST be running locally)
-2. Agents must be connected via Mailbox to Agentverse (as you have done).
-3. Run this test: python e2e_test_pipeline.py
+1. Start mock infrastructure: python services/mock_infrastructure.py
+2. Agents must be connected to Agentverse mailbox
+3. Update agent_registry.json with your agent addresses
+4. Run: python e2e_test_pipeline.py
 """
-import os
-os.environ['UAGENT_RESOLVERS'] = 'http'
-
 import asyncio
 import aiohttp
 from uagents import Agent, Context, Model
 from typing import List, Dict
 from loguru import logger
 import time
-from agents.registry import registry
 from datetime import datetime
+import json
+from pathlib import Path
+import sys
 
-# CRITICAL: AGENTVERSE_ADDRESSES
-# These are the public addresses you copied from the Agentverse Mailbox connections.
-AGENTVERSE_ADDRESSES = {
-    "canary_agent": "agent1q03dhrelysm3cmmky82x7xky5wy0dr4tjvnu8ar8n2zw0hjm8zv4x4cw0a3",
-    "monitoring_agent": "agent1q0sx9t9aqpewks6jj3fsgwa2hx9uq4c4eaacnsscerl69fv25aqe6fhfhyq",
-    "response_agent": "agent1qg92f9k4tj7tzmn2y87fkkz8jzsdx2ps6h7g56zq37uwzhflajctvgfvusw",
-    "communication_agent": "agent1qvgnwew95ltse0877yfdyq768lxukwzflrx2dgkrawf92gcwlxl9wh72klg"
-}
+# ============================================================================
+# LOAD AGENT ADDRESSES FROM REGISTRY
+# ============================================================================
+
+def load_agent_addresses():
+    """Load agent addresses from registry or use hardcoded fallback"""
+    registry_file = Path("agent_registry.json")
+    
+    if registry_file.exists():
+        try:
+            with open(registry_file) as f:
+                registry = json.load(f)
+                addresses = {
+                    name: info['address'] 
+                    for name, info in registry.items()
+                }
+                logger.info(f"✅ Loaded {len(addresses)} agent addresses from registry")
+                return addresses
+        except Exception as e:
+            logger.warning(f"Failed to load registry: {e}")
+    
+    # Fallback to hardcoded addresses
+    logger.warning("⚠️  Using hardcoded addresses - update agent_registry.json!")
+    return {
+        "canary_agent": "agent1q03dhrelysm3cmmky82x7xky5wy0dr4tjvnu8ar8n2zw0hjm8zv4x4cw0a3",
+        "monitoring_agent": "agent1q0sx9t9aqpewks6jj3fsgwa2hx9uq4c4eaacnsscerl69fv25aqe6fhfhyq",
+        "response_agent": "agent1qg92f9k4tj7tzmn2y87fkkz8jzsdx2ps6h7g56zq37uwzhflajctvgfvusw",
+        "communication_agent": "agent1qvgnwew95ltse0877yfdyq768lxukwzflrx2dgkrawf92gcwlxl9wh72klg"
+    }
+
+AGENTVERSE_ADDRESSES = load_agent_addresses()
 
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
 
 MOCK_API = "http://localhost:8000"
-TEST_DURATION = 60  # seconds per scenario
-POLL_INTERVAL = 1  # check registry every N seconds
+WAIT_TIME_PER_SCENARIO = 35  # Give more time for Agentverse routing
 
 # ============================================================================
 # MESSAGE MODELS
@@ -94,15 +110,15 @@ class StatusUpdate(Model):
 # ============================================================================
 
 class E2ETestOrchestrator:
-    """Orchestrates complete end-to-end testing"""
+    """Orchestrates complete end-to-end testing via Agentverse"""
     
     def __init__(self):
+        # Initialize orchestrator agent with mailbox
         self.agent = Agent(
             name="e2e_test_orchestrator",
             seed="e2e_test_seed_999",
             port=9999,
-            mailbox=True,
-            endpoint=f"http://localhost:9999/submit"
+            mailbox=True  # Use mailbox for Agentverse routing
         )
         
         self.metrics = {
@@ -115,6 +131,7 @@ class E2ETestOrchestrator:
         }
         
         self.message_log = []
+        self.test_complete = False
         self.setup_handlers()
     
     def setup_handlers(self):
@@ -128,6 +145,14 @@ class E2ETestOrchestrator:
             logger.info(f"\nOrchestrator Address: {self.agent.address}")
             
             await asyncio.sleep(2)
+            
+            # CRITICAL FIX #1: Check mock infrastructure first
+            if not await self.check_mock_infrastructure():
+                logger.error("❌ Mock infrastructure not available!")
+                logger.error("   Start it with: python services/mock_infrastructure.py")
+                logger.error("\n🛑 Exiting test pipeline...")
+                sys.exit(1)
+            
             await self.run_full_test_suite(ctx)
         
         @self.agent.on_message(model=CanaryTestResult)
@@ -162,19 +187,14 @@ class E2ETestOrchestrator:
             "data": data
         }
         self.message_log.append(log_entry)
-        logger.debug(f"📨 Intercepted: {source} -> {msg_type}")
+        logger.info(f"📨 Intercepted: {source} -> {msg_type}")
     
     async def run_full_test_suite(self, ctx: Context):
         """Run complete test suite"""
         
-        # Wait for agents to register
-        logger.info("\n⏳ Skipping local agent registration check (using Agentverse addresses).")
-        # await self.wait_for_agents() # <-- REMOVED CALL TO wait_for_agents
-        
-        # Check mock infrastructure
-        if not await self.check_mock_infrastructure():
-            logger.error("❌ Mock infrastructure not available!")
-            return
+        logger.info("\n⏳ Using Agentverse addresses from configuration")
+        for name, addr in AGENTVERSE_ADDRESSES.items():
+            logger.info(f"   {name}: {addr[:20]}...")
         
         # Run test scenarios
         await self.test_scenario_1_bad_update(ctx)
@@ -191,14 +211,12 @@ class E2ETestOrchestrator:
         # Generate final report
         await asyncio.sleep(5)
         self.generate_final_report()
-    
-    async def wait_for_agents(self, timeout: int = 30):
-        """
-        Modified to always return True as agents are assumed running on Agentverse.
-        This function is no longer called in run_full_test_suite.
-        """
-        logger.info("\n✅ Agents assumed deployed and running on Agentverse.")
-        return True
+        
+        # CRITICAL FIX #2: Stop agent after tests
+        self.test_complete = True
+        logger.info("\n🛑 Tests complete. Stopping orchestrator in 3 seconds...")
+        await asyncio.sleep(3)
+        sys.exit(0)
     
     async def check_mock_infrastructure(self) -> bool:
         """Verify mock infrastructure is running"""
@@ -208,9 +226,8 @@ class E2ETestOrchestrator:
                     if resp.status == 200:
                         logger.info("✅ Mock infrastructure is running")
                         return True
-        except:
-            logger.error("❌ Mock infrastructure not responding")
-            logger.error("   Start it with: python services/mock_infrastructure.py")
+        except Exception as e:
+            logger.error(f"❌ Mock infrastructure not responding: {e}")
         return False
     
     async def get_systems(self) -> List[str]:
@@ -231,16 +248,11 @@ class E2ETestOrchestrator:
             await session.post(f"{MOCK_API}/rollback/{system_id}")
     
     # ========================================================================
-    # TEST SCENARIOS (Like Real-World Outages)
+    # TEST SCENARIOS
     # ========================================================================
     
     async def test_scenario_1_bad_update(self, ctx: Context):
-        """
-        SCENARIO 1: Bad Software Update (CrowdStrike-style)
-        
-        Simulates a faulty update that would crash systems.
-        Canary Agent should detect and prevent full deployment.
-        """
+        """SCENARIO 1: Bad Software Update"""
         logger.info("\n" + "🎬"*35)
         logger.info("SCENARIO 1: BAD SOFTWARE UPDATE")
         logger.info("Simulating CrowdStrike-style faulty update")
@@ -249,37 +261,41 @@ class E2ETestOrchestrator:
         self.metrics["tests_run"] += 1
         
         systems = await self.get_systems()
-        target_systems = systems[:50]  # First 50 systems
+        target_systems = systems[:50]
         
-        # Pre-poison 20% to simulate bad update effect
+        # Pre-poison systems
         poison_count = int(len(target_systems) * 0.2)
         logger.info(f"\n💉 Pre-poisoning {poison_count} systems (simulating bad update)")
         
         for sys in target_systems[:poison_count]:
             await self.poison_system(sys)
         
-        # Send to Canary Agent
-        canary_addr = AGENTVERSE_ADDRESSES["canary_agent"] # <-- USES HARDCODED ADDRESS
-        if canary_addr:
-            logger.info(f"\n📤 Sending bad update to Canary Agent...")
-            
-            update = UpdatePackage(
-                update_id="UPDATE-FAULTY-2025-001",
-                version="2.5.0-broken",
-                description="Faulty kernel update (will crash systems)",
-                target_systems=target_systems,
-                timestamp=time.time()
-            )
-            
+        # Send to Canary Agent via Agentverse
+        canary_addr = AGENTVERSE_ADDRESSES.get("canary_agent")
+        if not canary_addr:
+            logger.error("❌ Canary agent address not found!")
+            return
+        
+        logger.info(f"\n📤 Sending bad update to Canary Agent...")
+        
+        update = UpdatePackage(
+            update_id="UPDATE-FAULTY-2025-001",
+            version="2.5.0-broken",
+            description="Faulty kernel update (will crash systems)",
+            target_systems=target_systems,
+            timestamp=time.time()
+        )
+        
+        try:
             await ctx.send(canary_addr, update)
             logger.info("✅ Sent to Canary Agent")
             logger.info("\n⏳ Expected: Canary tests on 1%, detects failures, prevents deployment")
-        else:
-            logger.error("❌ Canary Agent not registered!")
+        except Exception as e:
+            logger.error(f"❌ Failed to send to Canary: {e}")
         
         # Wait for pipeline
-        logger.info("\n⏳ Waiting 30 seconds for Canary testing...")
-        await asyncio.sleep(30)
+        logger.info(f"\n⏳ Waiting {WAIT_TIME_PER_SCENARIO} seconds for Canary testing...")
+        await asyncio.sleep(WAIT_TIME_PER_SCENARIO)
         
         # Cleanup
         for sys in target_systems[:poison_count]:
@@ -288,12 +304,7 @@ class E2ETestOrchestrator:
         logger.info("✅ Scenario 1 complete")
     
     async def test_scenario_2_cpu_spike(self, ctx: Context):
-        """
-        SCENARIO 2: CPU Spike Detection
-        
-        Simulates sudden CPU spike (like a runaway process).
-        Monitoring should detect, Response should take action.
-        """
+        """SCENARIO 2: CPU Spike Detection"""
         logger.info("\n" + "🎬"*35)
         logger.info("SCENARIO 2: CPU SPIKE DETECTION")
         logger.info("Simulating runaway process causing CPU spike")
@@ -307,24 +318,19 @@ class E2ETestOrchestrator:
         
         logger.info("✅ CPU spike injected")
         logger.info("\n⏳ Expected flow:")
-        logger.info("   1. Monitoring detects CPU anomaly (~5-10s)")
-        # Note: Monitoring Agent will use the hardcoded address to send to the Response Agent.
-        logger.info("   2. Sends alert to Response Agent")
+        logger.info("   1. Monitoring detects CPU anomaly")
+        logger.info("   2. Sends alert to Response Agent (via Agentverse)")
         logger.info("   3. Response Agent analyzes with AI")
-        logger.info("   4. Takes autonomous action (scale/restart)")
+        logger.info("   4. Takes autonomous action")
         logger.info("   5. Communication notifies stakeholders")
         
-        await asyncio.sleep(20)
+        await asyncio.sleep(WAIT_TIME_PER_SCENARIO)
         
         await self.recover_system(target)
         logger.info("✅ Scenario 2 complete")
     
     async def test_scenario_3_memory_leak(self, ctx: Context):
-        """
-        SCENARIO 3: Memory Leak Detection
-        
-        Simulates gradual memory consumption.
-        """
+        """SCENARIO 3: Memory Leak Detection"""
         logger.info("\n" + "🎬"*35)
         logger.info("SCENARIO 3: MEMORY LEAK DETECTION")
         logger.info("🎬"*35)
@@ -338,7 +344,7 @@ class E2ETestOrchestrator:
             await self.poison_system(target)
         
         logger.info("\n⏳ Monitoring should detect memory anomalies...")
-        await asyncio.sleep(25)
+        await asyncio.sleep(WAIT_TIME_PER_SCENARIO)
         
         for target in targets:
             await self.recover_system(target)
@@ -346,11 +352,7 @@ class E2ETestOrchestrator:
         logger.info("✅ Scenario 3 complete")
     
     async def test_scenario_4_cascading_failure(self, ctx: Context):
-        """
-        SCENARIO 4: Cascading Failure (AWS-style)
-        
-        Simulates multiple systems failing in succession.
-        """
+        """SCENARIO 4: Cascading Failure"""
         logger.info("\n" + "🎬"*35)
         logger.info("SCENARIO 4: CASCADING FAILURE")
         logger.info("Simulating AWS-style availability zone failure")
@@ -358,7 +360,6 @@ class E2ETestOrchestrator:
         
         self.metrics["tests_run"] += 1
         
-        # Simulate cascading failure
         targets = [f"server-{i}" for i in range(30, 40)]
         
         logger.info(f"\n💥 Triggering cascading failure on {len(targets)} systems...")
@@ -366,10 +367,10 @@ class E2ETestOrchestrator:
         for i, target in enumerate(targets):
             await self.poison_system(target)
             logger.info(f"   ⚡ System {i+1}/{len(targets)} failed")
-            await asyncio.sleep(2)  # Cascade over time
+            await asyncio.sleep(2)
         
         logger.info("\n⏳ Multiple alerts should trigger autonomous response...")
-        await asyncio.sleep(30)
+        await asyncio.sleep(WAIT_TIME_PER_SCENARIO)
         
         # Cleanup
         for target in targets:
@@ -384,10 +385,9 @@ class E2ETestOrchestrator:
         logger.info("📊 END-TO-END TEST REPORT")
         logger.info("="*70)
         
-        # Agent participation (Using hardcoded Agentverse addresses)
+        # Agent participation
         logger.info("\n🤖 Agent Participation (Deployed on Agentverse):")
-        agents_info = AGENTVERSE_ADDRESSES
-        for name, address in agents_info.items():
+        for name, address in AGENTVERSE_ADDRESSES.items():
             logger.info(f"   ✅ {name} - {address[:20]}...")
         
         # Test metrics
@@ -415,18 +415,26 @@ class E2ETestOrchestrator:
         if self.metrics['canary_caught_bad_updates'] > 0:
             score += 25
             logger.info("   ✅ Canary deployment protection: WORKING")
+        else:
+            logger.info("   ❌ Canary deployment protection: NO DATA")
         
         if self.metrics['monitoring_detected_anomalies'] > 0:
             score += 25
             logger.info("   ✅ Real-time monitoring: WORKING")
+        else:
+            logger.info("   ❌ Real-time monitoring: NO DATA")
         
         if self.metrics['autonomous_recoveries'] > 0:
             score += 25
             logger.info("   ✅ Autonomous recovery: WORKING")
+        else:
+            logger.info("   ❌ Autonomous recovery: NO DATA")
         
         if self.metrics['notifications_sent'] > 0:
             score += 25
             logger.info("   ✅ Stakeholder communication: WORKING")
+        else:
+            logger.info("   ❌ Stakeholder communication: NO DATA")
         
         logger.info(f"\n   Overall Score: {score}/100")
         
@@ -436,11 +444,21 @@ class E2ETestOrchestrator:
             logger.info("\n   ✅ GOOD - Core systems working, minor issues")
         elif score >= 50:
             logger.info("\n   ⚠️  PARTIAL - Some components need attention")
+        elif score == 0:
+            logger.info("\n   ❌ NO COMMUNICATION - Agents not receiving messages")
+            logger.info("\n   Troubleshooting:")
+            logger.info("   1. Verify all agents are connected on Agentverse dashboard")
+            logger.info("   2. Check agent logs in logs/ directory")
+            logger.info("   3. Ensure addresses in agent_registry.json are correct")
+            logger.info("   4. Wait longer - Agentverse routing can take 30-60 seconds")
         else:
             logger.info("\n   ❌ NEEDS WORK - Multiple systems not responding")
         
         logger.info("\n" + "="*70)
-        logger.info("💡 Next: Check logs/ for detailed agent activity")
+        logger.info("💡 Next Steps:")
+        logger.info("   • Check logs/ for detailed agent activity")
+        logger.info("   • Check https://agentverse.ai/agents for message flow")
+        logger.info("   • Review agent connection status on Agentverse")
         logger.info("="*70)
 
 # ============================================================================
@@ -448,9 +466,12 @@ class E2ETestOrchestrator:
 # ============================================================================
 
 def main():
+    logger.info("🚀 Starting End-to-End Test Pipeline...")
+    logger.info("📬 Using Agentverse Mailbox routing")
+    logger.info(f"📋 Loaded addresses from: agent_registry.json")
+    
     orchestrator = E2ETestOrchestrator()
     orchestrator.agent.run()
 
 if __name__ == "__main__":
-    logger.info("🚀 Starting End-to-End Test Pipeline...")
     main()

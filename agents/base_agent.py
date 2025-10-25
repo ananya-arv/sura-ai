@@ -2,10 +2,7 @@ from uagents import Agent, Context, Model
 from loguru import logger
 import os
 from typing import Optional, Dict, Any, List
-from agents.registry import register_agent, get_agent_address, registry # Keep registry import
-
-# Note: load_dotenv() should be called at the top of each agent's main file (e.g., canary_agent.py)
-# but for simplicity, we'll keep it here for guaranteed access to OS environment variables.
+from agents.registry import register_agent, get_agent_address, registry
 from dotenv import load_dotenv
 
 class BaseAgentConfig(Model):
@@ -33,15 +30,15 @@ class BaseSuraAgent:
     ):
         load_dotenv()
         
-        # 🎯 FIX 1: Initialize for Mailbox mode. 
-        # Setting mailbox=True ensures Agentverse can route messages to you.
-        # We also keep the local port for local-to-local communication
+        # 🔥 CRITICAL FIX: For Agentverse Mailbox mode
+        # When mailbox=True, do NOT set endpoint (it overrides mailbox)
+        # The agent will automatically use Agentverse mailbox for routing
         self.agent = Agent(
             name=name,
             seed=seed,
             port=port,
-            mailbox=True, 
-            endpoint=None
+            mailbox=True  # Enable Agentverse mailbox
+            # NO endpoint parameter - let mailbox handle routing
         )
         self.name = name
         self.capabilities = capabilities or []
@@ -54,9 +51,10 @@ class BaseSuraAgent:
             level="INFO"
         )
         
-        logger.info(f"✅ {name} initialized (Mailbox mode enabled)")
+        logger.info(f"✅ {name} initialized (Mailbox mode)")
         logger.info(f"   Address: {self.agent.address}")
-        logger.info(f"   Port: {port}")
+        logger.info(f"   Port: {port} (local backup)")
+        logger.info(f"   📬 Mailbox: ENABLED - Register this address on Agentverse!")
         
         # Auto-register in registry
         self.register_self()
@@ -76,8 +74,7 @@ class BaseSuraAgent:
     
     def get_peer_address(self, peer_name: str) -> Optional[str]:
         """Get another agent's address from registry"""
-        # This function fetches the local address for local-to-local agent communication
-        address = get_agent_address(peer_name) 
+        address = get_agent_address(peer_name)
         if address:
             logger.debug(f"Found {peer_name} at {address[:20]}...")
         else:
@@ -86,8 +83,8 @@ class BaseSuraAgent:
     
     async def send_to_peer(self, ctx: Context, peer_name: str, message: Model) -> bool:
         """
-        🎯 FIX 2: Revert to standard uAgents routing (ctx.send).
-        This method automatically handles all routing: local HTTP, remote Mailbox, or Almanac.
+        🔥 FIXED: Send message using standard uAgents routing
+        This automatically handles Mailbox/Almanac/HTTP routing
         """
         address = self.get_peer_address(peer_name)
         if not address:
@@ -95,7 +92,7 @@ class BaseSuraAgent:
             return False
         
         try:
-            # Use the standard uagents send function
+            # Use standard ctx.send - it handles all routing automatically
             await ctx.send(address, message)
             logger.info(f"✅ Sent {message.__class__.__name__} to {peer_name}")
             return True
