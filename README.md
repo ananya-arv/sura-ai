@@ -1,6 +1,8 @@
 # SuraAI: Autonomous Multi-Agentic Infrastructure Immune System
 
-<img width="682" height="321" alt="image" src="https://github.com/user-attachments/assets/b6d14e91-1990-4c1e-9777-516c8a212280" />
+<p align="center">
+<img width="682" height="321" alt="SuraAI Architecture Diagram" src="https://github.com/user-attachments/assets/b6d14e91-1990-4c1e-9777-516c8a212280" />
+</p>
 
 SuraAI is an autonomous, AI-powered system designed to be the "immune system for your infrastructure". It uses four cooperating Fetch.ai uAgents to detect, diagnose, and auto-remediate production failures in real-time.
 
@@ -52,3 +54,4 @@ SuraAI orchestrates four distinct, self-registering **Fetch.ai uAgents** that co
 | **APIs & Web** | FastAPI, aiohttp |
 | **Language** | Python |
 | **Communication** | Agentverse Mailbox |
+
