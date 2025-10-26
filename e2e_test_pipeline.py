@@ -199,13 +199,13 @@ class E2ETestOrchestrator:
         
         # Run test scenarios
         await self.test_scenario_1_bad_update(ctx)
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
         
         await self.test_scenario_2_cpu_spike(ctx)
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
         
         await self.test_scenario_3_memory_leak(ctx)
-        await asyncio.sleep(5)
+        await asyncio.sleep(15)
         
         await self.test_scenario_4_cascading_failure(ctx)
         
@@ -347,6 +347,7 @@ class E2ETestOrchestrator:
             await self.recover_system(sys)
         
         logger.info("✅ Scenario 1 complete")
+        await asyncio.sleep(45)
     
     async def test_scenario_2_cpu_spike(self, ctx: Context):
         """SCENARIO 2: CPU Spike Detection"""
@@ -373,6 +374,7 @@ class E2ETestOrchestrator:
         
         await self.recover_system(target)
         logger.info("✅ Scenario 2 complete")
+        await asyncio.sleep(45)
     
     async def test_scenario_3_memory_leak(self, ctx: Context):
         """SCENARIO 3: Memory Leak Detection"""
@@ -395,6 +397,7 @@ class E2ETestOrchestrator:
             await self.recover_system(target)
         
         logger.info("✅ Scenario 3 complete")
+        await asyncio.sleep(45)
     
     async def test_scenario_4_cascading_failure(self, ctx: Context):
         """SCENARIO 4: Cascading Failure"""
@@ -412,7 +415,7 @@ class E2ETestOrchestrator:
         for i, target in enumerate(targets):
             await self.poison_system(target)
             logger.info(f"   ⚡ System {i+1}/{len(targets)} failed")
-            await asyncio.sleep(2)
+            await asyncio.sleep(5)
         
         logger.info("\n⏳ Multiple alerts should trigger autonomous response...")
         await asyncio.sleep(WAIT_TIME_PER_SCENARIO)

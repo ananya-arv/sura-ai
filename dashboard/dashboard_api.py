@@ -51,6 +51,40 @@ async def run_tests():
 async def health():
     return {"status": "healthy", "service": "SuraAI Dashboard API"}
 
+@app.get("/api/metrics")
+async def get_metrics():
+    """Get all agent metrics"""
+    try:
+        canary = json.loads(Path("agent1q03dhrelys_data.json").read_text())
+        monitoring = json.loads(Path("agent1q0sx9t9aqp_data.json").read_text())
+        response = json.loads(Path("agent1qg92f9k4tj_data.json").read_text())
+        communication = json.loads(Path("agent1qvgnwew95l_data.json").read_text())
+        status_page = json.loads(Path("status_page.json").read_text())
+
+        ai_accuracy = (canary.get("ai_decisions", 0) / max(canary.get("tests_run", 1), 1)) * 100
+
+        recovery_score = (response.get("incidents_resolved", 0) / max(response.get("actions_taken", 1), 1)) * 100
+
+        return {
+            "agents": {
+                "canary": canary,
+                "monitoring": monitoring,
+                "response": response,
+                "communication": communication
+            },
+            "detections": status_page,
+            "metrics": {
+                "ai_accuracy": ai_accuracy,
+                "recovery_score": recovery_score,
+                "anomalies_detected": monitoring.get("anomalies_detected", 0),
+                "actions_taken": response.get("actions_taken", 0),
+                "lava_cost": response.get("lava_requests", 0) * 0.015
+            },
+            "latest_detection": status_page[-1] if status_page else None
+        }
+    except Exception as e:
+        return {"error": str(e), "agents": {}, "detections": [], "metrics": {}}
+
 async def simulate_tests():
     scenarios = [
         {"id": 1, "name": "Bad Software Update", "icon": "🐦", "problem": "Faulty kernel update", "action": "ROLLBACK"},
