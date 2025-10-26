@@ -465,19 +465,104 @@ class E2ETestOrchestrator:
             # Canary agent metrics
             canary_data = self.read_agent_storage("agent1q03dhrelys")
             bad_updates_caught = canary_data.get("incidents_prevented", 0)
+            tests_run = canary_data.get("tests_run", 0)
             
             # Communication agent metrics
             comm_data = self.read_agent_storage("agent1qvgnwew95l")
             notifications_sent = comm_data.get("notifications_sent", 0)
             
-            # Update metrics with actual data
+            # Update metrics with actual data from agent storage
             self.metrics["monitoring_detected_anomalies"] = anomalies_detected
             self.metrics["autonomous_recoveries"] = autonomous_recoveries
             self.metrics["canary_caught_bad_updates"] = bad_updates_caught
             self.metrics["notifications_sent"] = notifications_sent
             
+            logger.info("\n✅ Successfully read metrics from agent storage files")
+            logger.info(f"   Canary tests run: {tests_run}")
+            logger.info(f"   Incidents resolved: {incidents_resolved}")
+            
         except Exception as e:
-            logger.warning(f"Could not read agent storage files: {e}")
+            logger.warning(f"⚠️  Could not read agent storage files: {e}")
+            logger.warning("   Using intercepted message counts instead")
+        
+        # Agent participation
+        logger.info("\n🤖 Agent Participation (Deployed on Agentverse):")
+        for name, address in AGENTVERSE_ADDRESSES.items():
+            logger.info(f"   ✅ {name} - {address[:20]}...")
+        
+        # Test metrics (now using actual agent data)
+        logger.info("\n📈 Test Metrics:")
+        logger.info(f"   Test Scenarios Run: {self.metrics['tests_run']}")
+        logger.info(f"   Bad Updates Caught: {self.metrics['canary_caught_bad_updates']}")
+        logger.info(f"   Anomalies Detected: {self.metrics['monitoring_detected_anomalies']}")
+        logger.info(f"   Autonomous Recoveries: {self.metrics['autonomous_recoveries']}")
+        logger.info(f"   Notifications Sent: {self.metrics['notifications_sent']}")
+        logger.info(f"   Total Incidents Prevented: {self.metrics['total_incidents_prevented']}")
+        
+        # Message flow analysis
+        logger.info(f"\n📨 Message Flow Analysis:")
+        logger.info(f"   Total Messages Intercepted: {len(self.message_log)}")
+        
+        if self.message_log:
+            logger.info("\n   Recent Messages:")
+            for msg in self.message_log[-10:]:
+                logger.info(f"   - [{msg['timestamp']}] {msg['source']} -> {msg['type']}")
+        else:
+            logger.info("\n   ⚠️  No messages intercepted by orchestrator")
+            logger.info("   (Agents may be communicating directly via Agentverse)")
+        
+        # Assessment
+        logger.info("\n🎯 System Assessment:")
+        
+        score = 0
+        if self.metrics['canary_caught_bad_updates'] > 0:
+            score += 25
+            logger.info("   ✅ Canary deployment protection: WORKING")
+        else:
+            logger.info("   ❌ Canary deployment protection: NO DATA")
+        
+        if self.metrics['monitoring_detected_anomalies'] > 0:
+            score += 25
+            logger.info("   ✅ Real-time monitoring: WORKING")
+        else:
+            logger.info("   ❌ Real-time monitoring: NO DATA")
+        
+        if self.metrics['autonomous_recoveries'] > 0:
+            score += 25
+            logger.info("   ✅ Autonomous recovery: WORKING")
+        else:
+            logger.info("   ❌ Autonomous recovery: NO DATA")
+        
+        if self.metrics['notifications_sent'] > 0:
+            score += 25
+            logger.info("   ✅ Stakeholder communication: WORKING")
+        else:
+            logger.info("   ❌ Stakeholder communication: NO DATA")
+        
+        logger.info(f"\n   Overall Score: {score}/100")
+        
+        if score == 100:
+            logger.info("\n   🏆 EXCELLENT - Full autonomous disaster recovery operational!")
+        elif score >= 75:
+            logger.info("\n   ✅ GOOD - Core systems working, minor issues")
+        elif score >= 50:
+            logger.info("\n   ⚠️  PARTIAL - Some components need attention")
+        elif score == 0:
+            logger.info("\n   ❌ NO COMMUNICATION - Agents not receiving messages")
+            logger.info("\n   Troubleshooting:")
+            logger.info("   1. Verify all agents are connected on Agentverse dashboard")
+            logger.info("   2. Check agent logs in logs/ directory")
+            logger.info("   3. Ensure addresses in agent_registry.json are correct")
+            logger.info("   4. Wait longer - Agentverse routing can take 30-60 seconds")
+        else:
+            logger.info("\n   ❌ NEEDS WORK - Multiple systems not responding")
+        
+        logger.info("\n" + "="*70)
+        logger.info("💡 Next Steps:")
+        logger.info("   • Check logs/ for detailed agent activity")
+        logger.info("   • Check https://agentverse.ai/agents for message flow")
+        logger.info("   • Review agent connection status on Agentverse")
+        logger.info("="*70)
 
 # ============================================================================
 # MAIN

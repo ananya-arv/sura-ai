@@ -1,22 +1,17 @@
 from uagents import Context, Model
 import os
-from agents.messages import ResponseAction, StatusUpdate  # ← CHANGE THIS
+
+
+from agents.messages import ResponseAction, StatusUpdate
+
 from agents.base_agent import BaseSuraAgent
-from agents.response.response_agent import ResponseAction
+
+
 from typing import List
 from loguru import logger
 from dotenv import load_dotenv
 from datetime import datetime
 import json
-
-class StatusUpdate(Model):
-    """Status update for stakeholders"""
-    incident_id: str
-    status: str  # "INVESTIGATING", "MITIGATING", "RESOLVED"
-    title: str
-    description: str
-    affected_services: List[str]
-    timestamp: float
 
 class CommunicationAgent(BaseSuraAgent):
     def __init__(self):
@@ -25,7 +20,7 @@ class CommunicationAgent(BaseSuraAgent):
             name="communication_agent",
             seed=os.getenv("COMMUNICATION_SEED_PHRASE"),
             port=8004,
-            capabilities=["notifications", "status_updates", "stakeholder_communication"]  # ADD THIS
+            capabilities=["notifications", "status_updates", "stakeholder_communication"]
         )
         
         self.status_page = []
@@ -37,11 +32,17 @@ class CommunicationAgent(BaseSuraAgent):
         @self.agent.on_event("startup")
         async def startup(ctx: Context):
             logger.info(f"📢 Communication Agent started at {self.agent.address}")
+            
+            # ✅ Initialize storage
             ctx.storage.set("notifications_sent", 0)
+            logger.info(f"✅ Storage initialized: notifications_sent=0")
         
         @self.agent.on_message(model=ResponseAction)
         async def handle_action(ctx: Context, sender: str, msg: ResponseAction):
             logger.info(f"📨 Received action notification: {msg.action_type}")
+            logger.info(f"   From: {sender[:20]}...")
+            logger.info(f"   Action ID: {msg.action_id}")
+            logger.info(f"   Status: {msg.status}")
             
             # Create status update
             status = StatusUpdate(
@@ -59,7 +60,10 @@ class CommunicationAgent(BaseSuraAgent):
             # Send notifications
             await self.send_notifications(ctx, status)
             
-            ctx.storage.set("notifications_sent", ctx.storage.get("notifications_sent") + 1)
+            # ✅ Update storage IMMEDIATELY
+            notifications_sent = ctx.storage.get("notifications_sent") or 0
+            ctx.storage.set("notifications_sent", notifications_sent + 1)
+            logger.info(f"📊 Notifications sent updated: {notifications_sent + 1}")
     
     async def publish_status_update(self, ctx: Context, status: StatusUpdate):
         """Publish to status page"""
@@ -67,8 +71,12 @@ class CommunicationAgent(BaseSuraAgent):
         logger.info(f"📄 Status page updated: {status.title}")
         
         # Write to file for dashboard
-        with open("status_page.json", "w") as f:
-            json.dump(self.status_page, f, indent=2)
+        try:
+            with open("status_page.json", "w") as f:
+                json.dump(self.status_page, f, indent=2)
+            logger.info(f"✅ Status page file updated")
+        except Exception as e:
+            logger.error(f"❌ Failed to write status page: {e}")
     
     async def send_notifications(self, ctx: Context, status: StatusUpdate):
         """Send notifications to stakeholders"""
@@ -76,7 +84,11 @@ class CommunicationAgent(BaseSuraAgent):
         logger.info(f"🔔 NOTIFICATION SENT:")
         logger.info(f"   Title: {status.title}")
         logger.info(f"   Status: {status.status}")
+        logger.info(f"   Incident ID: {status.incident_id}")
         logger.info(f"   Affected: {', '.join(status.affected_services[:3])}")
+        
+        if len(status.affected_services) > 3:
+            logger.info(f"   ... and {len(status.affected_services) - 3} more systems")
 
 communication_agent = CommunicationAgent()
 agent = communication_agent.get_agent()

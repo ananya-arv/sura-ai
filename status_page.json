@@ -1,0 +1,12 @@
+[
+  {
+    "incident_id": "ACTION-1761438209",
+    "status": "RESOLVED",
+    "title": "RESTART - Rule-based (AI confidence too low)",
+    "description": "Automated RESTART executed on 1 systems",
+    "affected_services": [
+      "server-0"
+    ],
+    "timestamp": 1761438209.171632
+  }
+]

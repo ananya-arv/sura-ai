@@ -1,18 +1,14 @@
 """
-Intelligent Response Agent with Lava Gateway
-Uses Lava AI for incident analysis with graceful fallback to rule-based decisions
+Intelligent Response Agent - LAVA-ONLY MODE with Proper Storage Tracking
 """
 
 from uagents import Context, Model
 import os
-from agents.messages import (  # ← CHANGE THIS
-    CanaryTestResult,
-    AnomalyAlert,
-    ResponseAction
-)
+
+# ✅ CRITICAL FIX: Import from centralized messages.py
+from agents.messages import CanaryTestResult, AnomalyAlert, ResponseAction
+
 from agents.base_agent import BaseSuraAgent
-from agents.canary.canary_agent import CanaryTestResult
-from agents.monitoring.monitoring_agent import AnomalyAlert
 from typing import Dict, List
 from loguru import logger
 from datetime import datetime
@@ -22,18 +18,8 @@ import asyncio
 # Import Lava service
 from services.lava_service import lava_service
 
-class ResponseAction(Model):
-    """Action taken by response agent"""
-    action_id: str
-    action_type: str
-    target_systems: List[str]
-    reason: str
-    status: str
-    timestamp: float
-    lava_request_id: str = ""  # Track Lava usage
-
 class IntelligentResponseAgent(BaseSuraAgent):
-    """Response Agent with AI-enhanced decision making via Lava Gateway"""
+    """Response Agent - LAVA-ONLY MODE (AI required, no fallback)"""
     
     def __init__(self):
         load_dotenv()
@@ -41,12 +27,22 @@ class IntelligentResponseAgent(BaseSuraAgent):
             name="response_agent",
             seed=os.getenv("RESPONSE_SEED_PHRASE", "response_seed_default_67890"),
             port=8003,
-            capabilities=["incident_response", "autonomous_recovery", "lava_ai", "runbook_execution"]
+            capabilities=["incident_response", "lava_ai_required", "autonomous_recovery"]
         )
         
         self.active_incidents: Dict[str, dict] = {}
         self.runbooks = self.load_runbooks()
         self.lava_requests_count = 0
+        
+        # CRITICAL: Check Lava availability on init
+        if not lava_service.available:
+            logger.error("="*70)
+            logger.error("🚨 LAVA AI NOT AVAILABLE - AGENT CANNOT START")
+            logger.error("="*70)
+            logger.error("This agent requires LAVA_FORWARD_TOKEN to function")
+            logger.error("Get token: https://lavapayments.com/dashboard/build/secret-keys")
+            logger.error("Add to .env: LAVA_FORWARD_TOKEN=lsk_...")
+            raise RuntimeError("LAVA_FORWARD_TOKEN required for this agent")
         
         self.setup_handlers()
     
@@ -54,46 +50,62 @@ class IntelligentResponseAgent(BaseSuraAgent):
         @self.agent.on_event("startup")
         async def startup(ctx: Context):
             logger.info(f"🚑 Response Agent started at {self.agent.address}")
+            logger.info(f"🔮 Lava Gateway: ENABLED (REQUIRED MODE)")
+            logger.info(f"   Model: {lava_service.model}")
+            logger.info(f"   Using your Lava wallet credits")
+            logger.info(f"   ⚠️  NO FALLBACK - All decisions require AI")
             
-            # Check Lava availability
-            if lava_service.available:
-                logger.info(f"🔮 Lava Gateway: ENABLED")
-                logger.info(f"   Model: {lava_service.model}")
-                logger.info(f"   Using your Lava wallet credits")
-            else:
-                logger.warning(f"⚠️  Lava Gateway: DISABLED")
-                logger.info(f"   Using rule-based decisions (still works perfectly!)")
-            
+            # ✅ FIX: Initialize storage properly
             ctx.storage.set("actions_taken", 0)
             ctx.storage.set("incidents_resolved", 0)
             ctx.storage.set("lava_requests", 0)
+            logger.info(f"✅ Storage initialized: all counters set to 0")
         
         @self.agent.on_message(model=CanaryTestResult)
         async def handle_canary_result(ctx: Context, sender: str, msg: CanaryTestResult):
             logger.info(f"📊 Received canary result: {msg.recommendation}")
+            logger.info(f"   From: {sender[:20]}...")
+            logger.info(f"   Update ID: {msg.update_id}")
+            logger.info(f"   Error rate: {msg.error_rate:.2%}")
             
             if msg.recommendation == "ROLLBACK":
-                action = await self.execute_rollback(ctx, msg.update_id, msg.details)
-                ctx.storage.set("actions_taken", ctx.storage.get("actions_taken") + 1)
+                action = await self.execute_rollback_with_ai(ctx, msg)
                 
-                # Notify Communication Agent
+                # ✅ FIX: Update storage immediately
+                actions_taken = ctx.storage.get("actions_taken") or 0
+                ctx.storage.set("actions_taken", actions_taken + 1)
+                
+                if action.lava_request_id:
+                    lava_requests = ctx.storage.get("lava_requests") or 0
+                    ctx.storage.set("lava_requests", lava_requests + 1)
+                    logger.info(f"📊 Lava: {lava_requests + 1} | Actions: {actions_taken + 1}")
+                
                 await self.send_to_peer(ctx, "communication_agent", action)
         
         @self.agent.on_message(model=AnomalyAlert)
         async def handle_anomaly(ctx: Context, sender: str, msg: AnomalyAlert):
             logger.warning(f"🚨 Received anomaly alert: {msg.severity} - {msg.metric_type}")
+            logger.warning(f"   From: {sender[:20]}...")
+            logger.warning(f"   System: {msg.system_id}")
+            logger.warning(f"   Current: {msg.current_value:.2f} | Expected: {msg.expected_value:.2f}")
             
-            if msg.severity in ["HIGH", "CRITICAL"]:
-                action = await self.execute_emergency_response(ctx, msg)
-                ctx.storage.set("actions_taken", ctx.storage.get("actions_taken") + 1)
+            if msg.severity in ["HIGH", "CRITICAL", "MEDIUM"]:
+                action = await self.execute_emergency_response_ai_only(ctx, msg)
                 
-                # Track Lava usage
+                # ✅ FIX: Update storage immediately
+                actions_taken = ctx.storage.get("actions_taken") or 0
+                ctx.storage.set("actions_taken", actions_taken + 1)
+                
+                incidents_resolved = ctx.storage.get("incidents_resolved") or 0
+                ctx.storage.set("incidents_resolved", incidents_resolved + 1)
+                
                 if action.lava_request_id:
-                    ctx.storage.set("lava_requests", ctx.storage.get("lava_requests") + 1)
-                    self.lava_requests_count += 1
-                    logger.info(f"📊 Total Lava requests: {ctx.storage.get('lava_requests')}")
+                    lava_requests = ctx.storage.get("lava_requests") or 0
+                    ctx.storage.set("lava_requests", lava_requests + 1)
+                    logger.info(f"📊 Lava: {lava_requests + 1} | Actions: {actions_taken + 1} | Resolved: {incidents_resolved + 1}")
+                else:
+                    logger.error(f"⚠️  No Lava request ID - AI may have failed!")
                 
-                # Notify Communication Agent
                 await self.send_to_peer(ctx, "communication_agent", action)
     
     def load_runbooks(self) -> Dict[str, callable]:
@@ -108,87 +120,81 @@ class IntelligentResponseAgent(BaseSuraAgent):
             "RESTART": self.runbook_restart
         }
     
-    async def execute_rollback(self, ctx: Context, update_id: str, reason: str) -> ResponseAction:
-        """Execute automatic rollback"""
-        logger.info(f"🔄 Executing rollback for {update_id}")
+    async def execute_rollback_with_ai(self, ctx: Context, canary_result: CanaryTestResult) -> ResponseAction:
+        """Execute rollback with AI confirmation"""
+        logger.info(f"🔄 Analyzing rollback decision with AI...")
         
-        action = ResponseAction(
-            action_id=f"ACTION-{int(datetime.now().timestamp())}",
-            action_type="ROLLBACK",
-            target_systems=["all"],
-            reason=f"Canary test failed: {reason}",
-            status="INITIATED",
-            timestamp=datetime.now().timestamp()
-        )
+        try:
+            analysis = await lava_service.analyze_incident({
+                "alert_id": f"CANARY-{canary_result.update_id}",
+                "severity": "CRITICAL" if canary_result.error_rate > 0.1 else "HIGH",
+                "system_id": "canary_deployment",
+                "metric_type": "ERROR_RATE",
+                "current_value": canary_result.error_rate * 100,
+                "expected_value": 1.0,
+                "confidence": 0.95
+            })
+            
+            logger.info(f"🤖 AI Rollback Analysis:")
+            logger.info(f"   Recommendation: {analysis.get('recommendation')}")
+            logger.info(f"   Reasoning: {analysis.get('reasoning')}")
+            logger.info(f"   Lava Request ID: {analysis.get('lava_request_id', 'MISSING!')}")
+            
+            action = ResponseAction(
+                action_id=f"ACTION-{int(datetime.now().timestamp())}",
+                action_type=analysis.get('recommendation', 'ROLLBACK'),
+                target_systems=["all"],
+                reason=f"AI Decision: {analysis.get('reasoning', 'Canary test failed')}",
+                status="INITIATED",
+                timestamp=datetime.now().timestamp(),
+                lava_request_id=analysis.get('lava_request_id', '')
+            )
+            
+        except Exception as e:
+            logger.error(f"❌ AI analysis FAILED: {e}")
+            raise RuntimeError(f"Lava AI required but failed: {e}")
         
-        # Execute rollback runbook
-        await self.runbook_rollback(update_id)
-        
+        await self.runbook_rollback(canary_result.update_id)
         action.status = "COMPLETED"
-        ctx.storage.set("incidents_resolved", ctx.storage.get("incidents_resolved") + 1)
         
-        logger.info(f"✅ Rollback completed for {update_id}")
         return action
     
-    async def execute_emergency_response(self, ctx: Context, alert: AnomalyAlert) -> ResponseAction:
-        """
-        Execute emergency response with AI analysis (if available) or rule-based fallback
-        """
-        logger.info(f"⚡ Executing emergency response for {alert.alert_id}")
+    async def execute_emergency_response_ai_only(self, ctx: Context, alert: AnomalyAlert) -> ResponseAction:
+        """Execute emergency response - REQUIRES AI (no fallback)"""
+        logger.info(f"⚡ Executing AI-ONLY emergency response for {alert.alert_id}")
+        logger.info(f"🔮 Consulting Lava AI (REQUIRED)...")
         
-        action_type = None
-        reasoning = None
-        lava_request_id = ""
-        
-        # Try AI analysis if Lava is available
-        if lava_service.available:
-            logger.info(f"🔮 Using Lava AI for incident analysis...")
+        try:
+            analysis = await lava_service.analyze_incident({
+                "alert_id": alert.alert_id,
+                "severity": alert.severity,
+                "system_id": alert.system_id,
+                "metric_type": alert.metric_type,
+                "current_value": alert.current_value,
+                "expected_value": alert.expected_value,
+                "confidence": alert.confidence
+            })
             
-            try:
-                analysis = await lava_service.analyze_incident({
-                    "alert_id": alert.alert_id,
-                    "severity": alert.severity,
-                    "system_id": alert.system_id,
-                    "metric_type": alert.metric_type,
-                    "current_value": alert.current_value,
-                    "expected_value": alert.expected_value,
-                    "confidence": alert.confidence
-                })
-                
-                # Log AI decision
-                logger.info(f"🤖 AI Analysis Complete:")
-                logger.info(f"   Provider: {analysis.get('ai_provider', 'Lava')}")
-                logger.info(f"   Recommendation: {analysis.get('recommendation')}")
-                logger.info(f"   Confidence: {analysis.get('confidence', 0):.2f}")
-                logger.info(f"   Reasoning: {analysis.get('reasoning', 'N/A')}")
-                
-                if analysis.get('lava_request_id'):
-                    logger.info(f"📊 Lava Request ID: {analysis['lava_request_id']}")
-                    logger.info(f"   Track usage: https://lavapayments.com/dashboard/build/explore")
-                
-                # Use AI recommendation if high confidence
-                if analysis.get('confidence', 0) > 0.7:
-                    action_type = analysis.get('recommendation', 'INVESTIGATE')
-                    reasoning = f"AI: {analysis.get('reasoning', 'Automated decision')}"
-                    lava_request_id = analysis.get('lava_request_id', '')
-                    logger.info(f"✅ Using AI recommendation (confidence: {analysis.get('confidence', 0):.0%})")
-                else:
-                    logger.warning(f"⚠️  Low AI confidence ({analysis.get('confidence', 0):.0%}), using rules")
-                    action_type = self._rule_based_decision(alert)
-                    reasoning = f"Rule-based (AI confidence too low)"
+            if not analysis.get('lava_request_id'):
+                raise RuntimeError("No Lava request ID in response - AI call may have failed")
             
-            except Exception as e:
-                logger.error(f"❌ AI analysis failed: {e}")
-                logger.info(f"   Falling back to rule-based decision")
-                action_type = self._rule_based_decision(alert)
-                reasoning = f"Rule-based fallback (AI error)"
-        else:
-            # No Lava available, use rules directly
-            logger.info(f"📋 Using rule-based decision (Lava not available)")
-            action_type = self._rule_based_decision(alert)
-            reasoning = f"Rule-based: {alert.metric_type} anomaly on {alert.system_id}"
+            logger.info(f"🤖 AI Analysis Complete:")
+            logger.info(f"   Provider: {analysis.get('ai_provider', 'Lava')}")
+            logger.info(f"   Recommendation: {analysis.get('recommendation')}")
+            logger.info(f"   Confidence: {analysis.get('confidence', 0):.2f}")
+            logger.info(f"   Reasoning: {analysis.get('reasoning')}")
+            logger.info(f"📊 Lava Request ID: {analysis['lava_request_id']}")
+            logger.info(f"   Track usage: https://lavapayments.com/dashboard/build/explore")
+            
+            action_type = analysis.get('recommendation', 'INVESTIGATE')
+            reasoning = f"AI: {analysis.get('reasoning', 'Automated AI decision')}"
+            lava_request_id = analysis['lava_request_id']
+            
+        except Exception as e:
+            logger.error(f"❌ AI analysis FAILED: {e}")
+            logger.error(f"   CANNOT PROCEED - This agent requires AI")
+            raise RuntimeError(f"Lava AI required but failed: {e}")
         
-        # Create action
         action = ResponseAction(
             action_id=f"ACTION-{int(datetime.now().timestamp())}",
             action_type=action_type,
@@ -199,51 +205,17 @@ class IntelligentResponseAgent(BaseSuraAgent):
             lava_request_id=lava_request_id
         )
         
-        # Execute runbook
         if action_type in self.runbooks:
-            logger.info(f"📖 Executing {action_type} runbook...")
+            logger.info(f"📖 Executing AI-approved {action_type} runbook...")
             await self.runbooks[action_type](alert.system_id)
             action.status = "COMPLETED"
-            logger.info(f"✅ {action_type} completed successfully")
+            logger.info(f"✅ {action_type} completed successfully (AI-approved)")
         else:
-            logger.error(f"❌ Unknown action type: {action_type}")
-            # Try INVESTIGATE as fallback
+            logger.error(f"❌ Unknown action type from AI: {action_type}")
             await self.runbook_investigate(alert.system_id)
             action.status = "COMPLETED"
         
-        ctx.storage.set("incidents_resolved", ctx.storage.get("incidents_resolved") + 1)
-        
         return action
-    
-    def _rule_based_decision(self, alert: AnomalyAlert) -> str:
-        """
-        Fallback rule-based decision making
-        These are derived from SRE best practices
-        """
-        # Critical severity or error spike
-        if alert.severity == "CRITICAL" or alert.recommendation == "ROLLBACK_IMMEDIATELY":
-            return "ROLLBACK"
-        
-        # CPU anomalies
-        if "CPU" in alert.metric_type or "HIGH_CPU" in alert.recommendation:
-            if alert.current_value > 90:
-                return "RESTART"
-            else:
-                return "SCALE_UP"
-        
-        # Memory anomalies
-        if "MEMORY" in alert.metric_type or "MEMORY" in alert.recommendation:
-            if alert.current_value > 95:
-                return "RESTART"
-            else:
-                return "INVESTIGATE"
-        
-        # High severity
-        if alert.severity == "HIGH":
-            return "ISOLATE"
-        
-        # Default
-        return "INVESTIGATE"
     
     # ========================================================================
     # RUNBOOK IMPLEMENTATIONS
@@ -301,7 +273,7 @@ class IntelligentResponseAgent(BaseSuraAgent):
         logger.info(f"   ✅ System isolated")
     
     async def runbook_investigate(self, target):
-        """Investigate issue (collect logs, metrics)"""
+        """Investigate issue"""
         logger.info(f"📖 Running INVESTIGATE runbook on {target}")
         logger.info(f"   → Collecting system logs...")
         await asyncio.sleep(0.5)
@@ -329,6 +301,7 @@ intelligent_response_agent = IntelligentResponseAgent()
 agent = intelligent_response_agent.get_agent()
 
 if __name__ == "__main__":
-    logger.info("🚀 Starting Intelligent Response Agent...")
-    logger.info("   AI-Enhanced Incident Response with Graceful Fallback")
+    logger.info("🚀 Starting Response Agent (LAVA-ONLY MODE)...")
+    logger.info("   AI-Required - No fallback to rule-based decisions")
+    logger.info("   All incident responses will use Lava AI")
     agent.run()
