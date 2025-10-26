@@ -5,6 +5,11 @@ Uses Lava AI for incident analysis with graceful fallback to rule-based decision
 
 from uagents import Context, Model
 import os
+from agents.messages import (  # ← CHANGE THIS
+    CanaryTestResult,
+    AnomalyAlert,
+    ResponseAction
+)
 from agents.base_agent import BaseSuraAgent
 from agents.canary.canary_agent import CanaryTestResult
 from agents.monitoring.monitoring_agent import AnomalyAlert

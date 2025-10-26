@@ -1,5 +1,6 @@
 from uagents import Context, Model
 import os
+from agents.messages import UpdatePackage, CanaryTestResult  # ← CHANGE THIS
 from agents.base_agent import BaseSuraAgent, AgentMessage
 from typing import Optional, List
 import asyncio

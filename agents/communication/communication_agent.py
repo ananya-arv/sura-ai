@@ -1,5 +1,6 @@
 from uagents import Context, Model
 import os
+from agents.messages import ResponseAction, StatusUpdate  # ← CHANGE THIS
 from agents.base_agent import BaseSuraAgent
 from agents.response.response_agent import ResponseAction
 from typing import List
