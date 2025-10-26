@@ -1,432 +1,422 @@
 [
   {
-    "incident_id": "ACTION-1761445714",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (38.26%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-0"
-    ],
-    "timestamp": 1761445714.988571
-  },
-  {
-    "incident_id": "ACTION-1761445761",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (36%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-0"
-    ],
-    "timestamp": 1761445761.53905
-  },
-  {
-    "incident_id": "ACTION-1761445765",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.79%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-1"
-    ],
-    "timestamp": 1761445765.631998
-  },
-  {
-    "incident_id": "ACTION-1761445769",
+    "incident_id": "ACTION-1761448551",
     "status": "RESOLVED",
     "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
     "description": "Automated SCALE_UP executed on 1 systems",
     "affected_services": [
       "server-2"
     ],
-    "timestamp": 1761445769.689938
+    "timestamp": 1761448551.98694
   },
   {
-    "incident_id": "ACTION-1761445773",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (20%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-4"
-    ],
-    "timestamp": 1761445773.879316
-  },
-  {
-    "incident_id": "ACTION-1761445778",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-5"
-    ],
-    "timestamp": 1761445778.005263
-  },
-  {
-    "incident_id": "ACTION-1761445782",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33.6%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-6"
-    ],
-    "timestamp": 1761445782.233876
-  },
-  {
-    "incident_id": "ACTION-1761445786",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-3"
-    ],
-    "timestamp": 1761445786.372102
-  },
-  {
-    "incident_id": "ACTION-1761445790",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-9"
-    ],
-    "timestamp": 1761445790.721105
-  },
-  {
-    "incident_id": "ACTION-1761445794",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-7"
-    ],
-    "timestamp": 1761445794.917023
-  },
-  {
-    "incident_id": "ACTION-1761445799",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (37%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-8"
-    ],
-    "timestamp": 1761445799.305414
-  },
-  {
-    "incident_id": "ACTION-1761445803",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.79%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-1"
-    ],
-    "timestamp": 1761445803.548969
-  },
-  {
-    "incident_id": "ACTION-1761445807",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (36%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-0"
-    ],
-    "timestamp": 1761445807.79888
-  },
-  {
-    "incident_id": "ACTION-1761445811",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (30.85%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-2"
-    ],
-    "timestamp": 1761445811.98776
-  },
-  {
-    "incident_id": "ACTION-1761445816",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (20%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-4"
-    ],
-    "timestamp": 1761445816.145209
-  },
-  {
-    "incident_id": "ACTION-1761445820",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-3"
-    ],
-    "timestamp": 1761445820.32691
-  },
-  {
-    "incident_id": "ACTION-1761445824",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33.6%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-6"
-    ],
-    "timestamp": 1761445824.530932
-  },
-  {
-    "incident_id": "ACTION-1761445828",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-7"
-    ],
-    "timestamp": 1761445828.743365
-  },
-  {
-    "incident_id": "ACTION-1761445832",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-8"
-    ],
-    "timestamp": 1761445832.887617
-  },
-  {
-    "incident_id": "ACTION-1761445837",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-5"
-    ],
-    "timestamp": 1761445837.129505
-  },
-  {
-    "incident_id": "ACTION-1761445841",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-9"
-    ],
-    "timestamp": 1761445841.272571
-  },
-  {
-    "incident_id": "ACTION-1761445845",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-0"
-    ],
-    "timestamp": 1761445845.413359
-  },
-  {
-    "incident_id": "ACTION-1761445849",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-2"
-    ],
-    "timestamp": 1761445849.54155
-  },
-  {
-    "incident_id": "ACTION-1761445853",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.79%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-1"
-    ],
-    "timestamp": 1761445853.763506
-  },
-  {
-    "incident_id": "ACTION-1761445857",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-3"
-    ],
-    "timestamp": 1761445857.800414
-  },
-  {
-    "incident_id": "ACTION-1761445862",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (20%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-4"
-    ],
-    "timestamp": 1761445862.051333
-  },
-  {
-    "incident_id": "ACTION-1761445866",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-6"
-    ],
-    "timestamp": 1761445866.761776
-  },
-  {
-    "incident_id": "ACTION-1761445870",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-5"
-    ],
-    "timestamp": 1761445870.930682
-  },
-  {
-    "incident_id": "ACTION-1761445874",
+    "incident_id": "ACTION-1761448556",
     "status": "RESOLVED",
     "title": "SCALE_UP - AI: The CPU usage is significantly higher than expected, indicating a need for additional resources to handle the current load.",
     "description": "Automated SCALE_UP executed on 1 systems",
     "affected_services": [
-      "server-7"
-    ],
-    "timestamp": 1761445874.992249
-  },
-  {
-    "incident_id": "ACTION-1761445879",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-8"
-    ],
-    "timestamp": 1761445879.192024
-  },
-  {
-    "incident_id": "ACTION-1761445883",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-9"
-    ],
-    "timestamp": 1761445883.347491
-  },
-  {
-    "incident_id": "ACTION-1761445887",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
       "server-0"
     ],
-    "timestamp": 1761445887.780068
+    "timestamp": 1761448556.224725
   },
   {
-    "incident_id": "ACTION-1761445892",
+    "incident_id": "ACTION-1761448560",
     "status": "RESOLVED",
-    "title": "ROLLBACK - AI Decision: The error rate is 200 times higher than expected, indicating a severe issue with the new deployment that requires immediate rollback to restore system stability.",
-    "description": "Automated ROLLBACK executed on 1 systems",
-    "affected_services": [
-      "all"
-    ],
-    "timestamp": 1761445892.783739
-  },
-  {
-    "incident_id": "ACTION-1761445897",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-3"
-    ],
-    "timestamp": 1761445897.175166
-  },
-  {
-    "incident_id": "ACTION-1761445901",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.79%), indicating a need for additional resources to handle the load.",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.61%), indicating a need for additional resources to handle the load.",
     "description": "Automated SCALE_UP executed on 1 systems",
     "affected_services": [
       "server-1"
     ],
-    "timestamp": 1761445901.427603
+    "timestamp": 1761448560.660947
   },
   {
-    "incident_id": "ACTION-1761445905",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (30.85%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-2"
-    ],
-    "timestamp": 1761445905.848395
-  },
-  {
-    "incident_id": "ACTION-1761445910",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (20%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-4"
-    ],
-    "timestamp": 1761445910.198308
-  },
-  {
-    "incident_id": "ACTION-1761445914",
+    "incident_id": "ACTION-1761448564",
     "status": "RESOLVED",
     "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
     "description": "Automated SCALE_UP executed on 1 systems",
     "affected_services": [
       "server-6"
     ],
-    "timestamp": 1761445914.332174
+    "timestamp": 1761448564.938857
   },
   {
-    "incident_id": "ACTION-1761445918",
+    "incident_id": "ACTION-1761448569",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-4"
+    ],
+    "timestamp": 1761448569.173704
+  },
+  {
+    "incident_id": "ACTION-1761448573",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-3"
+    ],
+    "timestamp": 1761448573.340722
+  },
+  {
+    "incident_id": "ACTION-1761448577",
     "status": "RESOLVED",
     "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
     "description": "Automated SCALE_UP executed on 1 systems",
     "affected_services": [
       "server-5"
     ],
-    "timestamp": 1761445918.558433
+    "timestamp": 1761448577.485409
   },
   {
-    "incident_id": "ACTION-1761445923",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-7"
-    ],
-    "timestamp": 1761445923.205155
-  },
-  {
-    "incident_id": "ACTION-1761445927",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-9"
-    ],
-    "timestamp": 1761445927.432485
-  },
-  {
-    "incident_id": "ACTION-1761445931",
-    "status": "RESOLVED",
-    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (37%), indicating a need for additional resources to handle the load.",
-    "description": "Automated SCALE_UP executed on 1 systems",
-    "affected_services": [
-      "server-8"
-    ],
-    "timestamp": 1761445931.657154
-  },
-  {
-    "incident_id": "ACTION-1761445936",
+    "incident_id": "ACTION-1761448581",
     "status": "RESOLVED",
     "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
     "description": "Automated SCALE_UP executed on 1 systems",
     "affected_services": [
+      "server-7"
+    ],
+    "timestamp": 1761448581.730244
+  },
+  {
+    "incident_id": "ACTION-1761448586",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-8"
+    ],
+    "timestamp": 1761448586.234215
+  },
+  {
+    "incident_id": "ACTION-1761448590",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (29.79%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-9"
+    ],
+    "timestamp": 1761448590.763452
+  },
+  {
+    "incident_id": "ACTION-1761448595",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31.83%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
       "server-0"
     ],
-    "timestamp": 1761445936.177369
+    "timestamp": 1761448595.090291
+  },
+  {
+    "incident_id": "ACTION-1761448599",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.61%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-1"
+    ],
+    "timestamp": 1761448599.524769
+  },
+  {
+    "incident_id": "ACTION-1761448603",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (34.8%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-2"
+    ],
+    "timestamp": 1761448603.905818
+  },
+  {
+    "incident_id": "ACTION-1761448608",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-3"
+    ],
+    "timestamp": 1761448608.04449
+  },
+  {
+    "incident_id": "ACTION-1761448612",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-4"
+    ],
+    "timestamp": 1761448612.154309
+  },
+  {
+    "incident_id": "ACTION-1761448616",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-5"
+    ],
+    "timestamp": 1761448616.515682
+  },
+  {
+    "incident_id": "ACTION-1761448620",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-7"
+    ],
+    "timestamp": 1761448620.670136
+  },
+  {
+    "incident_id": "ACTION-1761448624",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-6"
+    ],
+    "timestamp": 1761448624.871093
+  },
+  {
+    "incident_id": "ACTION-1761448629",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-8"
+    ],
+    "timestamp": 1761448629.284791
+  },
+  {
+    "incident_id": "ACTION-1761448633",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-9"
+    ],
+    "timestamp": 1761448633.912614
+  },
+  {
+    "incident_id": "ACTION-1761448638",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31.83%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-0"
+    ],
+    "timestamp": 1761448638.042606
+  },
+  {
+    "incident_id": "ACTION-1761448642",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.61%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-1"
+    ],
+    "timestamp": 1761448642.166148
+  },
+  {
+    "incident_id": "ACTION-1761448646",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33.82%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-3"
+    ],
+    "timestamp": 1761448646.343482
+  },
+  {
+    "incident_id": "ACTION-1761448650",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-2"
+    ],
+    "timestamp": 1761448650.496391
+  },
+  {
+    "incident_id": "ACTION-1761448654",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-4"
+    ],
+    "timestamp": 1761448654.635187
+  },
+  {
+    "incident_id": "ACTION-1761448658",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33.56%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-8"
+    ],
+    "timestamp": 1761448658.852506
+  },
+  {
+    "incident_id": "ACTION-1761448663",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-6"
+    ],
+    "timestamp": 1761448663.056541
+  },
+  {
+    "incident_id": "ACTION-1761448667",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-7"
+    ],
+    "timestamp": 1761448667.216525
+  },
+  {
+    "incident_id": "ACTION-1761448671",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-5"
+    ],
+    "timestamp": 1761448671.474224
+  },
+  {
+    "incident_id": "ACTION-1761448675",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-9"
+    ],
+    "timestamp": 1761448675.65567
+  },
+  {
+    "incident_id": "ACTION-1761448679",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31.83%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-0"
+    ],
+    "timestamp": 1761448679.998878
+  },
+  {
+    "incident_id": "ACTION-1761448684",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (33.82%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-3"
+    ],
+    "timestamp": 1761448684.234299
+  },
+  {
+    "incident_id": "ACTION-1761448688",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-2"
+    ],
+    "timestamp": 1761448688.555743
+  },
+  {
+    "incident_id": "ACTION-1761448692",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (35.61%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-1"
+    ],
+    "timestamp": 1761448692.726711
+  },
+  {
+    "incident_id": "ACTION-1761448696",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-4"
+    ],
+    "timestamp": 1761448696.864005
+  },
+  {
+    "incident_id": "ACTION-1761448700",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-6"
+    ],
+    "timestamp": 1761448700.971755
+  },
+  {
+    "incident_id": "ACTION-1761448705",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-5"
+    ],
+    "timestamp": 1761448705.21499
+  },
+  {
+    "incident_id": "ACTION-1761448709",
+    "status": "RESOLVED",
+    "title": "ROLLBACK - AI Decision: The significant increase in error rate (20.0 vs expected 1.0) strongly indicates a problem with the recent canary deployment.",
+    "description": "Automated ROLLBACK executed on 1 systems",
+    "affected_services": [
+      "all"
+    ],
+    "timestamp": 1761448709.672111
+  },
+  {
+    "incident_id": "ACTION-1761448713",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-7"
+    ],
+    "timestamp": 1761448713.76957
+  },
+  {
+    "incident_id": "ACTION-1761448717",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-8"
+    ],
+    "timestamp": 1761448717.888669
+  },
+  {
+    "incident_id": "ACTION-1761448722",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage is significantly higher than expected, indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-9"
+    ],
+    "timestamp": 1761448722.19067
+  },
+  {
+    "incident_id": "ACTION-1761448726",
+    "status": "RESOLVED",
+    "title": "SCALE_UP - AI: The current CPU usage (95%) is significantly higher than expected (31.83%), indicating a need for additional resources to handle the load.",
+    "description": "Automated SCALE_UP executed on 1 systems",
+    "affected_services": [
+      "server-0"
+    ],
+    "timestamp": 1761448726.589602
   }
 ]

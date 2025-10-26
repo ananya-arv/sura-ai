@@ -221,6 +221,101 @@ Choose recommendation from: ROLLBACK, FAILOVER, SCALE_UP, ISOLATE, INVESTIGATE, 
             "lava_request_id": "",
             "ai_provider": "Fallback (rule-based)"
         }
+    
+    async def analyze_canary_deployment(self, deployment_data: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Specialized analysis for canary deployment decisions
+        """
+        if not self.available:
+            return self._fallback_response()
+        
+        context = deployment_data.get('additional_context', {})
+        
+        prompt = f"""You are an expert SRE AI analyzing canary deployment test results.
+
+    Deployment Information:
+    - Update ID: {context.get('update_id')}
+    - Version: {context.get('version')}
+    - Description: {context.get('description')}
+
+    Canary Test Results:
+    - Systems Tested: {context.get('canary_systems')} out of {context.get('total_systems')} total
+    - Test Duration: {context.get('test_duration')} seconds
+    - Errors Detected: {context.get('errors')}
+    - Warnings: {context.get('warnings')}
+    - Error Rate: {context.get('error_rate')}
+    - Warning Rate: {context.get('warning_rate')}
+    - Latency Impact: {context.get('latency_impact')}
+
+    Based on these canary test results, what should we do?
+
+    Respond with ONLY valid JSON (no markdown):
+    {{
+        "recommendation": "DEPLOY|INVESTIGATE|ROLLBACK",
+        "confidence": 0.85,
+        "reasoning": "brief explanation of your decision",
+        "severity": "LOW|MEDIUM|HIGH|CRITICAL"
+    }}
+
+    Guidelines:
+    - ROLLBACK: Clear evidence of failures (>3% error rate or critical errors)
+    - INVESTIGATE: Warning signs but not critical (1-3% errors, or elevated warnings)
+    - DEPLOY: All metrics look good (<1% errors, no warnings)"""
+        
+        # Use the same analyze_incident flow
+        deployment_data['metric_type'] = 'CANARY_TEST'
+        
+        try:
+            async with aiohttp.ClientSession() as session:
+                headers = {
+                    "Authorization": f"Bearer {self.lava_token}",
+                    "Content-Type": "application/json",
+                    "anthropic-version": "2023-06-01"
+                }
+                
+                payload = {
+                    "model": self.model,
+                    "max_tokens": 1024,
+                    "temperature": 0.1,
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": f"You are an expert SRE AI. Respond ONLY with valid JSON. No markdown, no code blocks.\n\n{prompt}"
+                        }
+                    ]
+                }
+                
+                async with session.post(
+                    self.lava_url,
+                    headers=headers,
+                    json=payload,
+                    timeout=aiohttp.ClientTimeout(total=30)
+                ) as resp:
+                    
+                    if resp.status != 200:
+                        response_text = await resp.text()
+                        logger.error(f"Lava error ({resp.status}): {response_text[:200]}")
+                        return self._fallback_response()
+                    
+                    lava_request_id = resp.headers.get('x-lava-request-id', '')
+                    response_data = await resp.json()
+                    content = response_data['content'][0]['text']
+                    
+                    # Parse JSON response
+                    if content.startswith('```'):
+                        content = content.split('```')[1]
+                        if content.startswith('json'):
+                            content = content[4:]
+                    
+                    analysis = json.loads(content.strip())
+                    analysis['lava_request_id'] = lava_request_id
+                    analysis['ai_provider'] = 'Claude Sonnet 3.5 (via Lava)'
+                    
+                    return analysis
+                    
+        except Exception as e:
+            logger.error(f"Canary AI analysis failed: {e}")
+            return self._fallback_response()
 
 # Global instance
 lava_service = LavaAIService()
