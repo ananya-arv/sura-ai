@@ -1,6 +1,6 @@
 """
 Lava AI Service for SuraAI - Claude Sonnet 3.5 through Lava's API
-FIXED VERSION - Proper token detection
+FIXED VERSION - Correct model and Anthropic response format
 """
 
 import os
@@ -19,8 +19,8 @@ class LavaAIService:
         self.lava_base_url = "https://api.lavapayments.com/v1"
         self.lava_token = os.getenv("LAVA_FORWARD_TOKEN")
         
-        # Model configuration
-        self.model = "claude-sonnet-3-5-20241022"
+        # Model configuration - FIXED: Use Lava-supported model
+        self.model = "claude-3-5-sonnet-20240620"
         
         # Lava endpoint (uses Anthropic's format)
         self.lava_url = f"{self.lava_base_url}/forward?u=https://api.anthropic.com/v1/messages"
@@ -52,24 +52,21 @@ class LavaAIService:
             async with aiohttp.ClientSession() as session:
                 headers = {
                     "Authorization": f"Bearer {self.lava_token}",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "anthropic-version": "2023-06-01"  # Required for Anthropic API
                 }
                 
-                # OpenAI-compatible format
+                # Anthropic message format
                 payload = {
                     "model": self.model,
+                    "max_tokens": 1024,
+                    "temperature": 0.1,
                     "messages": [
                         {
-                            "role": "system",
-                            "content": "You are an expert SRE AI. Respond ONLY with valid JSON. No markdown, no code blocks, just pure JSON."
-                        },
-                        {
                             "role": "user",
-                            "content": prompt
+                            "content": f"You are an expert SRE AI. Respond ONLY with valid JSON. No markdown, no code blocks, just pure JSON.\n\n{prompt}"
                         }
-                    ],
-                    "temperature": 0.1,
-                    "max_tokens": 1024
+                    ]
                 }
                 
                 logger.info(f"🌊 Sending request to Lava...")
@@ -90,9 +87,12 @@ class LavaAIService:
                         logger.error(f"   Response: {response_text[:200]}")
                         return self._fallback_response()
                     
-                    # Get Lava request ID
-                    lava_request_id = resp.headers.get('x-lava-request-id', 'unknown')
-                    logger.info(f"✅ Lava Request ID: {lava_request_id}")
+                    # Get Lava request ID from headers
+                    lava_request_id = resp.headers.get('x-lava-request-id', '')
+                    if lava_request_id:
+                        logger.info(f"✅ Lava Request ID: {lava_request_id}")
+                    else:
+                        logger.warning(f"⚠️  No x-lava-request-id header found")
                     
                     try:
                         response_data = json.loads(response_text)
@@ -101,12 +101,20 @@ class LavaAIService:
                         logger.error(f"Raw response: {response_text[:500]}")
                         return self._fallback_response()
                     
-                    # Extract Claude's response
+                    # FIXED: Extract Claude's response using Anthropic format
                     try:
-                        content = response_data['choices'][0]['message']['content']
-                        logger.debug(f"Claude response: {content[:200]}")
-                    except (KeyError, IndexError) as e:
-                        logger.error(f"Unexpected response format: {e}")
+                        # Anthropic returns: {"content": [{"type": "text", "text": "..."}], "role": "assistant"}
+                        if 'content' in response_data and isinstance(response_data['content'], list):
+                            # Get text from first content block
+                            content = response_data['content'][0]['text']
+                            logger.debug(f"Claude response: {content[:200]}")
+                        else:
+                            logger.error(f"Unexpected Anthropic response structure")
+                            logger.error(f"Response keys: {response_data.keys()}")
+                            return self._fallback_response()
+                        
+                    except (KeyError, IndexError, TypeError) as e:
+                        logger.error(f"Failed to extract content: {e}")
                         logger.error(f"Response data: {response_data}")
                         return self._fallback_response()
                     
@@ -148,6 +156,8 @@ class LavaAIService:
             return self._fallback_response()
         except Exception as e:
             logger.error(f"❌ Unexpected error: {type(e).__name__}: {e}")
+            import traceback
+            traceback.print_exc()
             return self._fallback_response()
     
     def _build_incident_prompt(self, incident_data: Dict[str, Any]) -> str:
