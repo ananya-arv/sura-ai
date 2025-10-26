@@ -1,6 +1,3 @@
-"""
-Enhanced Monitoring Agent - Collects metrics from mock infrastructure API
-"""
 from uagents import Context, Model
 from agents.base_agent import BaseSuraAgent
 from agents.messages import SystemMetrics, AnomalyAlert  # ← CHANGE THIS

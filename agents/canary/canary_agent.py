@@ -1,7 +1,3 @@
-"""
-AI-Enhanced Canary Agent - Uses Lava AI for deployment decisions
-Instead of rule-based thresholds, asks Claude to analyze canary test results
-"""
 from uagents import Context, Model
 import os
 

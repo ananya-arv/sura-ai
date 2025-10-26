@@ -1,7 +1,3 @@
-"""
-Intelligent Response Agent - LAVA-ONLY MODE with Proper Storage Tracking
-"""
-
 from uagents import Context, Model
 import os
 

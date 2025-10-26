@@ -30,15 +30,11 @@ class BaseSuraAgent:
     ):
         load_dotenv()
         
-        # 🔥 CRITICAL FIX: For Agentverse Mailbox mode
-        # When mailbox=True, do NOT set endpoint (it overrides mailbox)
-        # The agent will automatically use Agentverse mailbox for routing
         self.agent = Agent(
             name=name,
             seed=seed,
             port=port,
             mailbox=True  # Enable Agentverse mailbox
-            # NO endpoint parameter - let mailbox handle routing
         )
         self.name = name
         self.capabilities = capabilities or []
@@ -82,10 +78,7 @@ class BaseSuraAgent:
         return address
     
     async def send_to_peer(self, ctx: Context, peer_name: str, message: Model) -> bool:
-        """
-        🔥 FIXED: Send message using standard uAgents routing
-        This automatically handles Mailbox/Almanac/HTTP routing
-        """
+       
         address = self.get_peer_address(peer_name)
         if not address:
             logger.error(f"❌ Cannot send to {peer_name} - not in registry")

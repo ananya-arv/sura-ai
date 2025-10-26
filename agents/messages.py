@@ -1,7 +1,3 @@
-"""
-Centralized Message Models for SuraAI
-ALL agents must import from here to ensure schema compatibility
-"""
 from uagents import Model
 from typing import List
 

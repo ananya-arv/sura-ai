@@ -1,6 +1,3 @@
-"""
-Enhanced Agent Registry - Enables automatic agent discovery and communication
-"""
 from typing import Dict, Optional, List
 from dataclasses import dataclass, field
 import json
