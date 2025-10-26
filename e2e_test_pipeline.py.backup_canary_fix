@@ -69,6 +69,12 @@ WAIT_TIME_PER_SCENARIO = 35  # Give more time for Agentverse routing
 # MESSAGE MODELS
 # ============================================================================
 
+class UpdatePackage(Model):
+    update_id: str
+    version: str
+    description: str
+    target_systems: List[str]
+    timestamp: float
 
 class CanaryTestResult(Model):
     update_id: str
