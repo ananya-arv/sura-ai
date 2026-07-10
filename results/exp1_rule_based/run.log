@@ -1,0 +1,1269 @@
+2026-07-09 20:31:06.553 | INFO     | services.lava_service:__init__:32 - 🌊 Lava AI Service initialized
+2026-07-09 20:31:06.553 | INFO     | services.lava_service:__init__:33 -    Model: claude-3-5-sonnet-20240620
+2026-07-09 20:31:06.553 | INFO     | services.lava_service:__init__:34 -    Token: aks_live_lMr85T...
+2026-07-09 20:31:06.553 | INFO     | services.lava_service:__init__:35 -    Endpoint: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:31:06.553 | INFO     | services.lava_service:__init__:36 -    ✅ LAVA IS ENABLED
+2026-07-09 20:31:06.554 | INFO     | services.lava_service:__init__:32 - 🌊 Lava AI Service initialized
+2026-07-09 20:31:06.554 | INFO     | services.lava_service:__init__:33 -    Model: claude-3-5-sonnet-20240620
+2026-07-09 20:31:06.554 | INFO     | services.lava_service:__init__:34 -    Token: aks_live_lMr85T...
+2026-07-09 20:31:06.554 | INFO     | services.lava_service:__init__:35 -    Endpoint: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:31:06.554 | INFO     | services.lava_service:__init__:36 -    ✅ LAVA IS ENABLED
+2026-07-09 20:33:48.132 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:33:48.132 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:33:48.132 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:33:51.648 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q3RMK0X3AFHFDMF5R605H
+2026-07-09 20:33:51.648 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 94.34% against an expected baseline of 30%, indicating a 3x spike likely caused by a runaway process, traffic 
+2026-07-09 20:33:51.648 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:33:51.648 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:33:51.648 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:33:51.649 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:33:51.649 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:33:51.649 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:33:55.441 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q3W2R29YVFFCNGF2TP92V
+2026-07-09 20:33:55.442 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 102.78% which is 3.4x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spi
+2026-07-09 20:33:55.442 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:33:55.442 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:33:55.442 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:33:55.444 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:33:55.444 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:33:55.444 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:33:58.613 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q3ZSADYWFDYHRTCEYKGZP
+2026-07-09 20:33:58.614 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 98% is severely exceeding the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-0", 
+2026-07-09 20:33:58.614 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:33:58.614 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:33:58.614 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:33:58.614 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:33:58.614 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:33:58.614 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:02.396 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q42WF3B4Z5948VQ94GKDF
+2026-07-09 20:34:02.396 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.1% against an expected baseline of 30%, indicating a 3x spike likely caused by runaway process, traffic sur
+2026-07-09 20:34:02.396 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:02.396 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:02.396 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:02.397 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:02.397 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:02.397 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:06.524 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q46JM115SVKNKTVCMKJEJ
+2026-07-09 20:34:06.524 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 97.91% is 3.26x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traffic spike, or r
+2026-07-09 20:34:06.524 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:06.524 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:06.524 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:06.525 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:06.525 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:06.525 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:09.894 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q4AKYQHQVCQQGVYFN2VTG
+2026-07-09 20:34:09.896 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 91.8%, more than 3x the expected baseline of 30%, indicating a runaway process, traffic spike, or resource con
+2026-07-09 20:34:09.896 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:09.896 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:09.896 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:09.897 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:09.897 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:09.898 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:13.666 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q4DX5BTXDK8VY79X3WSBW
+2026-07-09 20:34:13.667 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is critically elevated at 95.08% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a 
+2026-07-09 20:34:13.667 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:13.667 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:13.667 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:13.667 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:13.667 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:13.667 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:17.703 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q4HJXTX55C1MT2MQRS9YY
+2026-07-09 20:34:17.703 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 97.6%, more than 3x the expected baseline of 30%, indicating severe resource exhaustion likely caused by a run
+2026-07-09 20:34:17.703 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:17.703 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:17.704 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:17.705 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:17.705 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:17.705 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:21.318 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q4NGW8WATDXV6QT440R2H
+2026-07-09 20:34:21.318 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 99.84% on server-0 is critically elevated, approximately 3.3x above the expected baseline of 30%, indicating a runaway process, resource exhausti
+2026-07-09 20:34:21.319 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:21.319 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:21.319 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:21.320 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:21.320 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:21.320 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:25.750 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q4S2MHCBZZK05ZG3K4PJT
+2026-07-09 20:34:25.750 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 87% against a baseline of 30%, indicating a 190% spike likely caused by runaway process, traffic surge, or recent deployment intro
+2026-07-09 20:34:25.751 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:25.751 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:25.751 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:25.752 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:25.752 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:25.752 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:29.743 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q4XC725HEKFZB013BW9DH
+2026-07-09 20:34:29.744 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 88.85% against an expected baseline of 30%, indicating a 196% deviation likely caused by runaway process, traf
+2026-07-09 20:34:29.744 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:29.744 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:29.744 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:29.745 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:29.745 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:29.745 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:34.537 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q519STANGTFP1CHNR4KCD
+2026-07-09 20:34:34.538 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.57%, more than 3x the expected baseline of 30%, indicating severe resource exhaustion likely caused by runa
+2026-07-09 20:34:34.538 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:34.538 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:34.538 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:34.540 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:34.540 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:34.540 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:38.803 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q561ENT126TMV9JMC2T31
+2026-07-09 20:34:38.803 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 107.60% is 3.6x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-0", "rec
+2026-07-09 20:34:38.804 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:38.804 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:38.804 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:38.806 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:38.807 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:38.807 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:42.442 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q5A4K5WWES5KC6C4PJD28
+2026-07-09 20:34:42.444 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.59% is 3.19x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by runaway process, traffic spike, or res
+2026-07-09 20:34:42.444 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:42.444 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:42.444 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:42.445 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:42.446 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:42.446 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:46.143 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q5DP8HFCK3WVD5R3A622J
+2026-07-09 20:34:46.143 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 106.48% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traffic spi
+2026-07-09 20:34:46.143 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:46.143 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:46.143 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:46.145 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:46.145 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:46.145 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:50.325 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q5HA1R7H2A05KSS7HSSJE
+2026-07-09 20:34:50.325 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.16% against an expected baseline of 30%, indicating a 3x threshold breach likely caused by runaway process,
+2026-07-09 20:34:50.325 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:50.326 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:50.326 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:50.327 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:50.327 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:50.327 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:53.673 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q5NC9KB1NEDQYRP5Q9FZK
+2026-07-09 20:34:53.673 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 85.13% against an expected baseline of 30%, indicating a 183% spike likely caused by runaway process, traffic surge, or resource c
+2026-07-09 20:34:53.673 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:53.673 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:53.674 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:53.674 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:53.674 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:53.674 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:34:57.873 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q5RP6A1GM2RABBXWMS5RT
+2026-07-09 20:34:57.873 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.73% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway p
+2026-07-09 20:34:57.873 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:34:57.874 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:34:57.874 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:34:57.875 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:34:57.875 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:34:57.875 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:01.590 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q5WRAMMTTVW69FGMT23CF
+2026-07-09 20:35:01.590 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is critically elevated at 92.63%, more than 3x the expected baseline of 30%, indicating severe resource exhaustion likely cause
+2026-07-09 20:35:01.590 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:01.590 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:01.590 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:01.591 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:01.591 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:01.591 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:05.401 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q60CAKHR1JZ6G696TQ3YR
+2026-07-09 20:35:05.402 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 89.8%, nearly 3x the expected baseline of 30%, indicating a runaway process, traffic spike, or resource conten
+2026-07-09 20:35:05.402 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:05.402 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:05.402 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:05.403 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:05.403 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:05.403 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:09.313 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q643EJ3MTEBJK6EX0P9QZ
+2026-07-09 20:35:09.314 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 96.5% against a 30% baseline, indicating severe resource exhaustion likely caused by a runaway process, traffi
+2026-07-09 20:35:09.314 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:09.314 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:09.314 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:09.316 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:09.316 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:09.316 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:13.251 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q67XYKD40P7VH8FJATZ23
+2026-07-09 20:35:13.251 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.47% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway p
+2026-07-09 20:35:13.251 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:13.251 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:13.251 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:13.252 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:13.252 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:13.252 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:16.960 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q6BS34W2KEG8CQKFNTKNB
+2026-07-09 20:35:16.961 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 98.45% is critically elevated, more than 3x the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic sp
+2026-07-09 20:35:16.961 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:16.961 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:16.961 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:16.963 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:16.963 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:16.963 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:21.532 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q6FDSZEWC7FXZ1RBVWA34
+2026-07-09 20:35:21.532 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 78.58% against an expected baseline of 30%, indicating a 162% above-normal load likely caused by a runaway process, traffic spike,
+2026-07-09 20:35:21.532 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:21.532 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:35:21.532 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:21.533 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:21.533 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:21.533 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:24.878 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q6KW7VX2FVH2XG27W5VNW
+2026-07-09 20:35:24.878 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 91.3%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention, or sudden
+2026-07-09 20:35:24.878 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:24.878 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:24.878 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:24.880 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:24.880 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:24.880 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:28.216 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q6Q45CX4XHXNADMKE92XS
+2026-07-09 20:35:28.217 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 89.1% against an expected baseline of 30%, indicating a 197% spike likely caused by runaway process, traffic surge, or resource le
+2026-07-09 20:35:28.217 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:28.217 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:28.218 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:28.219 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:28.219 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:28.220 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:32.267 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q6TCP3FG7ENTG67GAT16C
+2026-07-09 20:35:32.267 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 98.2%, more than 3x the expected baseline of 30%, indicating severe resource exhaustion likely caused by a run
+2026-07-09 20:35:32.267 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:32.267 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:32.268 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:32.269 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:32.269 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:32.269 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:35.895 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q6YB0KJ5VMFDQ3QX827H9
+2026-07-09 20:35:35.897 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 96.39% is 3.2x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traffic spike, or re
+2026-07-09 20:35:35.897 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:35.897 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:35.897 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:35.898 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:35.898 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:35.898 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:40.197 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q71XR61QYTEA7TEKHDW6B
+2026-07-09 20:35:40.198 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.46% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway p
+2026-07-09 20:35:40.198 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:40.198 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:40.198 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:40.200 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:40.200 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:40.200 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:43.883 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q76361HFB7Y2Y2FNDEJ2V
+2026-07-09 20:35:43.885 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is critically elevated at 90.75%, approximately 3x the expected baseline of 30%, indicating severe resource exhaustion likely c
+2026-07-09 20:35:43.885 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:43.885 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:43.885 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:43.886 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:43.886 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:43.886 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:47.683 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q79P55XCV9Z1J1XJD1AYA
+2026-07-09 20:35:47.684 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 95.3% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway pr
+2026-07-09 20:35:47.684 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:47.684 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:47.684 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:47.686 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:47.686 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:47.686 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:51.666 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q7DCY02J0Z7EVAG558AR2
+2026-07-09 20:35:51.667 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is critically elevated at 91.1% against an expected baseline of 30%, indicating a 3x spike likely caused by runaway process, tr
+2026-07-09 20:35:51.667 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:51.667 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:51.667 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:51.668 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:51.668 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:51.668 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:55.715 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q7H9VNA7JCA33QYDWNJGX
+2026-07-09 20:35:55.716 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 88.46%, nearly 3x the expected baseline of 30%, indicating a runaway process, traffic spike, or resource contention", "recommendat
+2026-07-09 20:35:55.716 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:55.716 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:55.716 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:55.717 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:55.717 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:55.717 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:35:59.651 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q7NCJ71HZCPQ0GWNM48PN
+2026-07-09 20:35:59.652 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 88.5% is nearly 3x the expected baseline of 30%, indicating a sudden spike likely caused by a recent deployment, runaway process, or unexpected t
+2026-07-09 20:35:59.652 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:35:59.652 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:35:59.652 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:35:59.654 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:35:59.654 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:35:59.654 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:04.055 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q7S673GC5VJ3C2WDS1WG0
+2026-07-09 20:36:04.056 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 91.06% against an expected baseline of 30%, indicating a 3x spike likely caused by runaway process, traffic su
+2026-07-09 20:36:04.056 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:04.056 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:04.056 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:04.058 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:04.058 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:04.058 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:07.914 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q7XEJJHDWA30J9BTYK6Y4
+2026-07-09 20:36:07.915 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 92.96%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention, or sudde
+2026-07-09 20:36:07.915 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:07.915 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:07.915 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:07.916 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:07.916 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:07.916 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:12.207 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q81CX1DMPYA1BT1QKEM21
+2026-07-09 20:36:12.207 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 96.33% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway p
+2026-07-09 20:36:12.208 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:12.208 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:12.208 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:12.210 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:12.210 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:12.210 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:16.548 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q85B86D5TAJ38KT6G5A7V
+2026-07-09 20:36:16.550 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 96% against a baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traff
+2026-07-09 20:36:16.550 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:16.550 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:16.550 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:16.551 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:16.551 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:16.551 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:20.338 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q89K2QA539XNNZP8HN9FM
+2026-07-09 20:36:20.339 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 92.14% against an expected baseline of 30%, indicating a 3x spike likely caused by runaway process, traffic surge, or resource con
+2026-07-09 20:36:20.339 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:20.339 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:20.339 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:20.341 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:20.341 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:20.341 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:24.235 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q8DA3KD8QAB8V4AT2C73Q
+2026-07-09 20:36:24.235 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 83.06% against an expected baseline of 30%, indicating a 177% spike likely caused by a runaway process, recent deployment, or sudd
+2026-07-09 20:36:24.235 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:24.235 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:24.235 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:24.236 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:24.236 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:24.236 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:27.890 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q8H3B6Z01EG43Z6V8H0R9
+2026-07-09 20:36:27.891 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is at 85.07%, nearly 3x the expected baseline of 30%, indicating abnormal processing load likely caused by a runaway process, traffic sp
+2026-07-09 20:36:27.891 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:27.891 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:27.891 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:27.894 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:27.894 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:27.895 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:31.377 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q8MNHJZGAZVJ27E6J2MBE
+2026-07-09 20:36:31.377 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 98.3%, more than 3x the expected baseline of 30%, indicating severe resource exhaustion likely caused by a run
+2026-07-09 20:36:31.377 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:31.377 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:31.377 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:31.379 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:31.379 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:31.379 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:38.073 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q8R25KN2834JF8FMB8Q6P
+2026-07-09 20:36:38.073 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is critically elevated at 92.7%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention, 
+2026-07-09 20:36:38.073 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:38.073 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:38.073 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:38.074 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:38.074 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:38.074 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:41.638 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q8YKDZNX830PSDZ4E2TBX
+2026-07-09 20:36:41.639 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is at 90.25%, which is 3x above the expected baseline of 30%, indicating a severe resource contention or runaway process condit
+2026-07-09 20:36:41.639 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:41.639 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:41.639 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:41.641 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:41.641 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:41.641 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:47.063 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q924QY5RR5GSDMSV35XV9
+2026-07-09 20:36:47.063 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 83.71% against an expected baseline of 30%, indicating a 2.79x spike likely caused by runaway process, traffic
+2026-07-09 20:36:47.063 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:47.063 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:47.063 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:47.063 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:47.063 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:47.063 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:51.305 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q97DADTHXRR8PBYR9CKTN
+2026-07-09 20:36:51.305 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 98.13% is 3.27x above the expected baseline of 30%, indicating severe resource exhaustion on server-0 likely caused by a runaway process, traffic
+2026-07-09 20:36:51.306 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:51.306 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:51.306 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:51.306 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:51.306 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:51.306 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:55.664 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q9BHRFY16MV90XV25WEXH
+2026-07-09 20:36:55.664 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-0 is critically elevated at 95.4%, more than 3x the expected baseline of 30%, indicating severe resource exhaustion likely caused
+2026-07-09 20:36:55.664 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:55.664 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:55.664 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:55.665 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:55.665 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:55.665 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:36:59.381 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q9FTFXC4E21QX1NJ2WFG2
+2026-07-09 20:36:59.382 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 99.8% against an expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway pr
+2026-07-09 20:36:59.382 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:36:59.382 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:36:59.382 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:36:59.384 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:36:59.384 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:36:59.384 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:03.652 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q9KDHR91RA0EEA77KF1DJ
+2026-07-09 20:37:03.652 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 92.4%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention, or sudden
+2026-07-09 20:37:03.652 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:03.652 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:03.653 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:37:03.654 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:03.654 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:03.654 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:07.239 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q9QJSE0A012Y4EEYD0MCG
+2026-07-09 20:37:07.239 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-0 is critically elevated at 94.7%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention, or sudden
+2026-07-09 20:37:07.239 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:07.239 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:07.239 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:37:07.246 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:07.247 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:07.247 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:10.514 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q9V8Q8NC4FJYN727D4J4E
+2026-07-09 20:37:10.515 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-0 is at 78.5%, nearly double the expected 40% threshold, indicating a potential memory leak, excessive caching, or unexpected workload spik
+2026-07-09 20:37:10.516 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:10.516 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:10.516 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:10.517 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:10.517 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:10.517 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:14.048 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4Q9Y9QNTW46BYJKST856PR
+2026-07-09 20:37:14.049 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-1 is at 78.83% which is nearly double the expected baseline of 40%, indicating a potential memory leak, unexpected workload spike, or runaw
+2026-07-09 20:37:14.049 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:14.049 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:14.049 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:14.050 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:14.050 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:14.050 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:17.427 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QA1QR3422JAD0J3CG7XP5
+2026-07-09 20:37:17.427 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-2 is at 82.84%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity
+2026-07-09 20:37:17.427 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:17.427 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:17.427 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:17.428 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:17.428 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:17.428 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:20.926 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QA5419BCK6JT2TQM04EJ1
+2026-07-09 20:37:20.928 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-3 is at 85.06%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity
+2026-07-09 20:37:20.928 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:20.928 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:20.928 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:20.929 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:20.929 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:20.929 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:24.428 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QA8EYYB4XRPC3J4PK14P9
+2026-07-09 20:37:24.428 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-4 is at 80.97%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity
+2026-07-09 20:37:24.428 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:24.428 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:24.428 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:24.430 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:24.430 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:24.430 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:28.016 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QABWSJ37E4G4J6CR6T9CJ
+2026-07-09 20:37:28.016 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-5 is critically elevated at 87.27% against an expected baseline of 40%, indicating a potential memory leak, runaway process, or insuffi
+2026-07-09 20:37:28.016 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:28.016 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:28.016 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:28.016 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:28.016 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:28.016 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:32.827 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QAFC71XPQ91Z92Y5R8EN0
+2026-07-09 20:37:32.829 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-6 is at 75.35%, nearly double the expected baseline of 40%, indicating a potential memory leak, unexpected workload spike, or misconfigured
+2026-07-09 20:37:32.829 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:32.829 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:32.829 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:32.830 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:32.830 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:32.830 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:36.777 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QAM33V2WMNHSNR5KXDWPA
+2026-07-09 20:37:36.778 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-7 is at 74.99%, nearly double the expected baseline of 40%, indicating a potential memory leak, excessive caching, or unexpected workload s
+2026-07-09 20:37:36.778 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:36.778 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:36.778 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:36.779 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:36.779 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:36.779 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:40.049 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QAQXYC8KVN28A1TSCYKP7
+2026-07-09 20:37:40.050 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-8 is at 82.89% which is more than double the expected threshold of 40%, indicating a likely memory leak, runaway process, or insufficie
+2026-07-09 20:37:40.050 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:40.050 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:40.050 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:40.051 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:40.051 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:40.051 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:43.518 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QAV4Q3F2HY1870X2VKJTM
+2026-07-09 20:37:43.518 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization at 95.98% is critically above the expected 40% threshold, indicating a severe memory leak, runaway process, or insufficient memory allocation on 
+2026-07-09 20:37:43.519 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:43.519 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:43.519 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:43.520 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:43.520 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:43.520 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:48.844 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QAYH51T3N74J66M5CXVQ8
+2026-07-09 20:37:48.844 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 88.49% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-0", "rec
+2026-07-09 20:37:48.845 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:48.845 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:48.845 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:48.845 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:48.845 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:48.845 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:53.009 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QB3PWD9BK6N3P1AKCQMSW
+2026-07-09 20:37:53.010 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 87.9% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-1", "reco
+2026-07-09 20:37:53.010 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:53.010 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:37:53.010 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:53.010 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:53.010 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:53.010 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:37:57.321 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QB7SGK7ECP5Z0F9BFRE87
+2026-07-09 20:37:57.322 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-2 is critically elevated at 87.08% against an expected baseline of 40%, indicating a potential memory leak, runaway process, or insufficient 
+2026-07-09 20:37:57.322 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:37:57.322 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:37:57.322 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:37:57.323 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:37:57.323 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:37:57.323 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:00.902 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QBBZXTE0ASC631A8EH1D0
+2026-07-09 20:38:00.902 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization at 99.3% is critically above the expected 40% threshold, indicating a severe memory leak, runaway process, or sudden spike in workload demand on 
+2026-07-09 20:38:00.903 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:00.903 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: RESTART
+2026-07-09 20:38:00.903 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:00.904 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:00.904 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:00.904 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:04.634 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QBFG25RGEHC0FCCR1AKW5
+2026-07-09 20:38:04.635 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-4 is at 79.33% which is nearly double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient cap
+2026-07-09 20:38:04.635 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:04.635 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:04.635 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:04.636 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:04.636 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:04.636 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:07.656 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QBK4C8SP9DX90DX3YS845
+2026-07-09 20:38:07.657 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-5 is at 83.4%, more than double the expected baseline of 40%, indicating a potential memory leak, runaway process, or unexpected worklo
+2026-07-09 20:38:07.657 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:07.657 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:38:07.657 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:07.658 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:07.658 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:07.658 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:11.138 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QBP2X1J6JM8CJ024YAZ6X
+2026-07-09 20:38:11.138 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-6 is at 82.84%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity
+2026-07-09 20:38:11.139 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:11.139 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:11.139 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:11.140 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:11.140 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:11.140 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:14.514 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QBSFT8Y3X760EWD2QKE58
+2026-07-09 20:38:14.515 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-7 is at 83.3%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity 
+2026-07-09 20:38:14.515 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:14.515 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:14.516 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:14.517 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:14.517 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:14.517 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:17.915 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QBWSC5QFXNQRVDWBFTN7Z
+2026-07-09 20:38:17.916 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-8 is at 80.26%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity
+2026-07-09 20:38:17.916 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:17.916 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:17.916 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:17.918 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:17.918 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:17.918 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:20.870 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QC03W3GHGWSP4MVT4PG22
+2026-07-09 20:38:20.871 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-9 is at 73.78%, significantly exceeding the expected baseline of 40%, indicating a potential memory leak or unexpected workload spike", "re
+2026-07-09 20:38:20.871 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:20.871 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:38:20.871 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:20.872 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:20.872 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:20.873 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:24.261 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QC2ZZ7M1ASTTH06KR9SCK
+2026-07-09 20:38:24.263 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-0 is critically elevated at 89.9% against an expected baseline of 40%, indicating a potential memory leak, runaway process, or insufficient c
+2026-07-09 20:38:24.263 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:24.263 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:24.263 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:24.264 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:24.264 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:24.264 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:27.728 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QC6A7ACBVXBG27GQRPNPZ
+2026-07-09 20:38:27.728 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 83.46% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-1", "rec
+2026-07-09 20:38:27.728 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:27.728 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:38:27.728 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:27.729 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:27.729 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:27.729 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:31.369 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QC9P9GCCQHKNSYBQHPX9D
+2026-07-09 20:38:31.369 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-2 is critically elevated at 92.49%, more than double the expected threshold of 40%, indicating a likely memory leak, runaway process, or insu
+2026-07-09 20:38:31.369 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:31.369 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:31.369 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:31.369 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:31.369 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:31.369 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:35.002 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QCD7SZW78GK1XNT12WCS3
+2026-07-09 20:38:35.002 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-3 is at 79.91% which is nearly double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient cap
+2026-07-09 20:38:35.002 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:35.002 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:35.002 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:35.003 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:35.004 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:35.004 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:39.370 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QCGSNNE0H26HXH8A4PZ1Q
+2026-07-09 20:38:39.371 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-4 is at 81.2%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity 
+2026-07-09 20:38:39.371 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:39.371 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:39.371 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:39.371 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:39.371 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:39.371 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:42.941 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QCN21RJT1W0A8PC1K68NM
+2026-07-09 20:38:42.941 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-5 is at 76.43%, nearly double the expected baseline of 40%, indicating a potential memory leak, unexpected workload spike, or misconfigured
+2026-07-09 20:38:42.941 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:42.941 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:38:42.941 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:42.943 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:42.943 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:42.943 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:46.258 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QCRKQX8DNB12XPZ9PH02T
+2026-07-09 20:38:46.259 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-6 is at 83.87% which is more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient 
+2026-07-09 20:38:46.259 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:46.259 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:46.259 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:46.260 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:46.260 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:46.260 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:50.927 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QCVSYG9HXFVZWXBK13HVB
+2026-07-09 20:38:50.928 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-7 is at 88.4%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity 
+2026-07-09 20:38:50.928 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:50.928 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:50.928 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:50.929 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:50.929 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:50.929 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:54.962 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QD0B777GNV6DQHSKP7QXD
+2026-07-09 20:38:54.963 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-8 is at 81.28% which is more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient 
+2026-07-09 20:38:54.963 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:54.963 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:38:54.963 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:54.964 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:54.964 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:54.965 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:38:58.445 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QD49BGX0X19MJ912KWX3E
+2026-07-09 20:38:58.446 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 82.6% is more than double the expected 40% threshold, indicating a potential memory leak, runaway process, or insufficient capacity on server-9", "r
+2026-07-09 20:38:58.446 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:38:58.446 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:38:58.446 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:38:58.448 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:38:58.448 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:38:58.448 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:02.201 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QD7PJDJTS0JSN8XNZPSTZ
+2026-07-09 20:39:02.202 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 89.9% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-0", "reco
+2026-07-09 20:39:02.202 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:02.202 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:02.202 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:02.204 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:02.204 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:02.204 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:05.649 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDBBQJAKJKX641NNN2P3F
+2026-07-09 20:39:05.649 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization at 93.56% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-1"
+2026-07-09 20:39:05.650 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:05.650 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:05.650 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:05.650 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:05.650 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:05.650 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:09.093 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDEQAY336PQ70MGJMTEJQ
+2026-07-09 20:39:09.094 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-2 is critically elevated at 92.93% against an expected baseline of 40%, indicating a likely memory leak, runaway process, or insufficie
+2026-07-09 20:39:09.094 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:09.094 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:09.095 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:09.097 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:09.097 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:09.097 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:12.268 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDJ3JJVDCBR6QCRMTTY2A
+2026-07-09 20:39:12.269 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-3 is at 83.43% which is more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient 
+2026-07-09 20:39:12.269 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:12.269 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:12.269 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:12.270 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:12.270 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:12.270 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:15.750 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDN6BNJ8BHDNWWHESTE5W
+2026-07-09 20:39:15.751 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-4 is critically elevated at 89.1%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or in
+2026-07-09 20:39:15.751 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:15.751 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:15.751 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:15.752 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:15.752 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:15.752 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:19.121 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDRK28R5VG67SDR7BDVTY
+2026-07-09 20:39:19.122 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-5 is at 82.91% which is more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient 
+2026-07-09 20:39:19.122 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:19.122 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:19.123 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:19.124 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:19.124 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:19.124 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:22.508 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDVW8EF9SZ5YVFD0N1SGF
+2026-07-09 20:39:22.508 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-6 is at 87.06%, more than double the expected threshold of 40%, indicating a likely memory leak, runaway process, or insufficient capac
+2026-07-09 20:39:22.508 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:22.508 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:22.509 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:22.509 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:22.509 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:22.509 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:25.734 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QDZ6DYEW3BZAQBZ7BFPXR
+2026-07-09 20:39:25.735 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-7 is critically elevated at 91.8%, more than double the expected baseline of 40%, indicating a potential memory leak, runaway process, 
+2026-07-09 20:39:25.735 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:25.736 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:25.736 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:25.737 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:25.737 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:25.737 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:30.146 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QE2AYRF0FAMB0S1BFH1QD
+2026-07-09 20:39:30.147 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-8 is at 81.65%, more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient capacity
+2026-07-09 20:39:30.147 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:30.147 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:30.148 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:30.149 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:30.149 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:30.149 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:33.881 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QE6MYZ2EN9XAHY9Z3F0XN
+2026-07-09 20:39:33.882 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-9 is at 83% which is more than double the expected 40% threshold, indicating a potential memory leak, runaway process, or insufficient capaci
+2026-07-09 20:39:33.882 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:33.882 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:33.882 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:33.884 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:33.884 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:33.884 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:37.136 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QEAA24KGETKFKPSZG6NK0
+2026-07-09 20:39:37.136 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-0 is at 85.23% which is more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insuffi
+2026-07-09 20:39:37.136 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:37.136 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:37.137 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:37.138 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:37.138 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:37.138 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:43.105 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QEDF5AY5Z72520W0KTZB6
+2026-07-09 20:39:43.106 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 82.6% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-1", "reco
+2026-07-09 20:39:43.106 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:43.106 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:39:43.106 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:43.107 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:43.107 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:43.107 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:46.637 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QEK9SMDX2Q0H9PTQVW89W
+2026-07-09 20:39:46.637 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-2 is critically elevated at 87.3%, more than double the expected baseline of 40%, indicating a potential memory leak, runaway process, 
+2026-07-09 20:39:46.637 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:46.637 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:46.637 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:46.638 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:46.638 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:46.638 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:49.971 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QEPR8QVA99P76RBSSEWF4
+2026-07-09 20:39:49.972 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-3 is critically elevated at 91.8%, more than double the expected threshold of 40%, indicating a likely memory leak, runaway process, or
+2026-07-09 20:39:49.972 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:49.972 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:49.972 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:49.974 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:49.974 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:49.974 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:53.539 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QET0BBV941H93D49SM6MP
+2026-07-09 20:39:53.539 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-4 is at 83% which is more than double the expected threshold of 40%, indicating a potential memory leak, runaway process, or insufficient cap
+2026-07-09 20:39:53.539 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:53.540 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:39:53.540 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:53.541 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:53.541 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:53.541 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:39:57.121 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QEXG0T64N901PP394N91G
+2026-07-09 20:39:57.122 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage on server-5 is at 101.10% which is 2.5x the expected threshold of 40%, indicating a severe memory leak or runaway process consuming all available RAM",
+2026-07-09 20:39:57.122 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:39:57.122 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: RESTART
+2026-07-09 20:39:57.122 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:39:57.124 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:39:57.124 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:39:57.124 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:00.666 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QF0ZSR8JCQ7KT2MJYWZ5R
+2026-07-09 20:40:00.667 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "MEDIUM", "root_cause": "Memory usage on server-6 is elevated at 76.63% against an expected baseline of 40%, indicating a potential memory leak, excessive workload, or runaway process con
+2026-07-09 20:40:00.667 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:00.667 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:40:00.667 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:40:00.669 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:00.669 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:00.669 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:04.396 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QF4ETP6SKE300XV04SZR9
+2026-07-09 20:40:04.396 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory utilization on server-7 is critically elevated at 91.89%, more than double the expected threshold of 40%, indicating a likely memory leak, runaway process, o
+2026-07-09 20:40:04.397 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:04.397 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:04.397 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:40:04.398 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:04.398 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:04.398 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:08.281 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QF83ETN5F3BQBJ8VNRGDR
+2026-07-09 20:40:08.281 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 87.9% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-8", "reco
+2026-07-09 20:40:08.281 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:08.281 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:40:08.282 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:40:08.283 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:08.283 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:08.283 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:11.679 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QFBY5PP38JRMCK8CF8KHJ
+2026-07-09 20:40:11.680 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "Memory usage at 85.09% is more than double the expected 40% threshold, indicating a likely memory leak, runaway process, or insufficient capacity on server-9", "rec
+2026-07-09 20:40:11.680 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:11.680 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:40:11.680 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.85
+2026-07-09 20:40:11.717 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:11.717 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:11.717 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:16.372 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QFF7RGMAK834JK2N0C5G0
+2026-07-09 20:40:16.373 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.3% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "recomm
+2026-07-09 20:40:16.373 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:16.373 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:16.373 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:16.375 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:16.375 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:16.375 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:20.163 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QFKSGTC5BY569CX45G4TB
+2026-07-09 20:40:20.163 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 97.48% is 3.25x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "re
+2026-07-09 20:40:20.164 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:20.164 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:20.164 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:20.165 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:20.166 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:20.166 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:23.737 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QFQG04GP40VE5DCR8SG81
+2026-07-09 20:40:23.737 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 91.6% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "recomm
+2026-07-09 20:40:23.737 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:23.737 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:23.737 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:23.738 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:23.738 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:23.738 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:27.746 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QFV2EJH13VJYJ1VA78QVY
+2026-07-09 20:40:27.746 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 100.5% is 3.35x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traffic spike, or r
+2026-07-09 20:40:27.746 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:27.746 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:27.747 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:27.748 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:27.748 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:27.748 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:31.629 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QFYWVMDPPP7NHWA7WVJSW
+2026-07-09 20:40:31.630 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization at 102% significantly exceeds the expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traff
+2026-07-09 20:40:31.630 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:31.630 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:31.630 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:31.631 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:31.631 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:31.631 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:35.215 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QG2Q6F2DNM1MF8T1PWZ1F
+2026-07-09 20:40:35.216 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 86.2% is nearly 3x the expected baseline of 30%, indicating a runaway process, resource contention, or unexpected traffic spike on server-40", "r
+2026-07-09 20:40:35.216 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:35.216 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:35.216 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:35.217 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:35.217 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:35.218 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:38.694 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QG6612YRG7MASYA8VNEST
+2026-07-09 20:40:38.695 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 96.4% is 3.2x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "reco
+2026-07-09 20:40:38.695 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:38.695 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:38.695 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:38.697 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:38.697 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:38.697 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:42.451 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QG9K33EJBXZ4HZK721H1Z
+2026-07-09 20:40:42.451 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 90.95% is significantly exceeding the expected baseline of 30%, indicating a severe processing overload on server-40 likely caused by a runaway p
+2026-07-09 20:40:42.451 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:42.451 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:42.451 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:42.453 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:42.453 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:42.453 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:46.511 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QGD8C2QWQHRW59Z5Z44SW
+2026-07-09 20:40:46.512 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is at 90.57%, which is 3x the expected baseline of 30%, indicating a runaway process, resource contention, or unexpected traff
+2026-07-09 20:40:46.512 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:46.512 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:46.512 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:46.514 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:46.514 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:46.514 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:50.269 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QGH78HMW59JX4SHXWKNMB
+2026-07-09 20:40:50.270 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 101.66% is severely exceeding the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-
+2026-07-09 20:40:50.270 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:50.270 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:50.270 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:50.273 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:50.273 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:50.273 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:54.667 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QGMXC39RAMP5C8Y1TZBRF
+2026-07-09 20:40:54.668 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 99.29% is 3.3x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden spike in workload demand on serve
+2026-07-09 20:40:54.668 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:54.668 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: INVESTIGATE
+2026-07-09 20:40:54.668 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:54.670 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:54.670 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:54.670 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:40:58.562 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QGS69DMMCRS78EG72RF69
+2026-07-09 20:40:58.563 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is at 81.49%, nearly 2.7x above the expected baseline of 30%, indicating abnormal processing load likely caused by a runaway p
+2026-07-09 20:40:58.563 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:40:58.563 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:40:58.563 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:40:58.564 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:40:58.564 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:40:58.564 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:01.858 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QGWZNX3Y70J9T2ZY64RGY
+2026-07-09 20:41:01.858 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 99.81% is severely exceeding the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-4
+2026-07-09 20:41:01.858 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:01.858 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:01.858 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:01.859 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:01.859 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:01.859 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:05.242 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QH06PVEPT4V6AR4Q6B7X5
+2026-07-09 20:41:05.243 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 98.6% is severely exceeding the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40
+2026-07-09 20:41:05.243 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:05.243 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:05.243 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:05.244 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:05.244 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:05.244 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:09.209 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QH3HNVH2YXDA8EM0TCCCT
+2026-07-09 20:41:09.210 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 99.6% is 3.3x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden spike in workload demand on server
+2026-07-09 20:41:09.210 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:09.210 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:09.210 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:09.212 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:09.212 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:09.212 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:12.824 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QH7D5TG74NNTP0Y0TFZQH
+2026-07-09 20:41:12.825 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 93.1% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "recomm
+2026-07-09 20:41:12.825 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:12.825 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:12.825 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:12.826 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:12.826 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:12.826 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:17.096 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QHAXHAPW0NXK6X3VWHPH2
+2026-07-09 20:41:17.097 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 96.69% is 3.2x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "rec
+2026-07-09 20:41:17.097 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:17.097 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:17.097 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:17.099 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:17.099 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:17.099 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:21.603 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QHF3QAG0H0P5M92ZRX2QR
+2026-07-09 20:41:21.603 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is critically elevated at 91.8% against an expected baseline of 30%, indicating a 3x spike likely caused by runaway process, t
+2026-07-09 20:41:21.603 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:21.603 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:21.603 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:21.604 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:21.604 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:21.604 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:25.179 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QHKFN535RBHCANBR0D68J
+2026-07-09 20:41:25.179 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 86.96% is nearly 3x the expected baseline of 30%, indicating a runaway process, resource contention, or unexpected traffic spike on server-40", "
+2026-07-09 20:41:25.179 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:25.179 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:25.179 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:25.180 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:25.180 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:25.180 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:28.870 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QHPZGTKX2JFSMVGV57BN5
+2026-07-09 20:41:28.870 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.9% is significantly exceeding the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden spike in workload dem
+2026-07-09 20:41:28.870 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:28.870 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:28.870 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:28.871 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:28.871 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:28.871 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:32.209 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QHTJVG8PW7EVNQ0YCK1GB
+2026-07-09 20:41:32.209 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 91.3% is significantly exceeding the expected baseline of 30%, indicating a severe resource contention or runaway process on server-40", "recomme
+2026-07-09 20:41:32.209 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:32.210 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:32.210 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:32.211 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:32.211 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:32.211 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:35.462 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QHXVBKQ56V56TT5DSZ9D6
+2026-07-09 20:41:35.463 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.5% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "recomm
+2026-07-09 20:41:35.463 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:35.463 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:35.463 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:35.464 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:35.464 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:35.464 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:39.418 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJ10ZSZWRS49QMF76XH8J
+2026-07-09 20:41:39.419 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.1% is 3x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "recomm
+2026-07-09 20:41:39.419 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:39.419 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:39.419 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:39.420 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:39.421 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:39.421 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:42.797 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJ4X7X52WN3H7TWFF5ZV6
+2026-07-09 20:41:42.798 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.6% is severely elevated, approximately 3x the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic s
+2026-07-09 20:41:42.798 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:42.798 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:42.798 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:42.799 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:42.799 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:42.799 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:46.074 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJ8609ADBDR479KGC9Q44
+2026-07-09 20:41:46.075 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-40 is at 88.6%, nearly 3x the expected baseline of 30%, indicating a runaway process, traffic spike, or resource contention", "recommendat
+2026-07-09 20:41:46.075 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:46.075 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:46.075 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:46.076 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:46.077 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:46.077 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:49.684 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJBCBFNS4ADDEJ0D8H542
+2026-07-09 20:41:49.684 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 97.93% is 3.26x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "re
+2026-07-09 20:41:49.684 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:49.685 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:49.685 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:49.686 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:49.686 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:49.687 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:52.761 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJEY2WDBTWM7JWJPK29YT
+2026-07-09 20:41:52.762 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-40 is at 87.1%, nearly 3x the expected baseline of 30%, indicating abnormal process load or runaway workload", "recommendation": "SCALE_UP
+2026-07-09 20:41:52.762 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:52.762 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:52.762 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:52.763 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:52.763 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:52.763 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:41:57.035 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJHXMFHB3AEZGJTBQGX1E
+2026-07-09 20:41:57.036 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 92.6% is significantly exceeding the expected baseline of 30%, indicating a severe resource exhaustion likely caused by runaway processes, traffi
+2026-07-09 20:41:57.036 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:41:57.036 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:41:57.036 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:41:57.037 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:41:57.037 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:41:57.037 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:00.415 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJP2YHBJYAEQRZQW5AZZR
+2026-07-09 20:42:00.416 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 102.32% is 3.4x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "re
+2026-07-09 20:42:00.416 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:00.416 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:00.416 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:00.417 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:00.417 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:00.417 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:04.412 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJSCXQ6ADHQWVBWQFSZTH
+2026-07-09 20:42:04.412 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.1% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "recomm
+2026-07-09 20:42:04.412 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:04.413 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:04.413 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:04.414 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:04.414 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:04.414 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:08.773 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QJX9RDGZD7F2RHCW40V19
+2026-07-09 20:42:08.773 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 95.57% is 3.19x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by runaway process, traffic spike, or res
+2026-07-09 20:42:08.773 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:08.773 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:08.773 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:08.774 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:08.774 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:08.774 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:13.209 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QK1JSFPG68TY2D31CVSQV
+2026-07-09 20:42:13.210 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 94% is significantly above the expected 30% baseline, indicating a runaway process, resource contention, or unexpected traffic spike on server-40
+2026-07-09 20:42:13.210 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:13.210 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:13.210 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:13.210 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:13.211 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:13.211 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:16.695 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QK5WC6GWHTXX368R0RBKJ
+2026-07-09 20:42:16.695 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 97.7% is 3.26x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "rec
+2026-07-09 20:42:16.696 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:16.696 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:16.696 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:16.697 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:16.697 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:16.697 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:20.584 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QK9A4KSEK8Z52ZMVY4B12
+2026-07-09 20:42:20.585 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 96.75% is 3.2x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "rec
+2026-07-09 20:42:20.585 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:20.585 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:20.585 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:20.586 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:20.586 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:20.586 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:25.127 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QKD352YX866YDNCJWSB7B
+2026-07-09 20:42:25.127 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 99.55% is 3.3x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traffic spike, or re
+2026-07-09 20:42:25.127 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:25.128 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:25.128 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:25.129 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:25.129 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:25.129 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:28.501 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QKHHB3RZN277EPNHMW593
+2026-07-09 20:42:28.502 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-40 is critically elevated at 95.1%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention, or sudde
+2026-07-09 20:42:28.502 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:28.502 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:28.502 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:28.504 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:28.504 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:28.504 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:32.123 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QKMTTQFEDDY64ZBVJ3BTB
+2026-07-09 20:42:32.123 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 90.74% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or sudden traffic spike on server-40", "recom
+2026-07-09 20:42:32.124 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:32.124 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:32.124 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:32.126 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:32.126 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:32.126 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:35.431 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QKRBT4W05WE0BKX592FA5
+2026-07-09 20:42:35.432 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 99.55% is 3.3x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "rec
+2026-07-09 20:42:35.432 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:35.432 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:35.433 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:35.434 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:35.434 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:35.434 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:38.451 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QKVK0K2CA1E0CPACTATBG
+2026-07-09 20:42:38.452 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is at 84.95%, nearly 3x the expected baseline of 30%, indicating abnormal process load or runaway workload",
+    "recommendati
+2026-07-09 20:42:38.452 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:38.452 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:38.452 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:38.454 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:38.454 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:38.454 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:42.252 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QKYR0JEJNRMDEZ9X7VP1K
+2026-07-09 20:42:42.252 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is at 85.94%, nearly 3x the expected baseline of 30%, indicating abnormal process load or runaway workload",
+    "recommendati
+2026-07-09 20:42:42.253 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:42.253 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:42.253 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:42.254 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:42.254 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:42.254 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:46.059 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QM2A098BPTH22K1EQSWA5
+2026-07-09 20:42:46.060 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 97.2% is 3.24x above the expected baseline of 30%, indicating a runaway process, resource exhaustion, or sudden traffic spike on server-40", "rec
+2026-07-09 20:42:46.060 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:46.060 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:46.060 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:46.062 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:46.062 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:46.062 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:49.767 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QM5Z8VCH66ANG6D8WPRZ6
+2026-07-09 20:42:49.768 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is critically elevated at 91.47%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention
+2026-07-09 20:42:49.768 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:49.768 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:49.768 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:49.768 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:49.768 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:49.768 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:53.352 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QM9KA1VK43AY6GM1J7TSY
+2026-07-09 20:42:53.352 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 91.4% is 3x above the expected baseline of 30%, indicating a runaway process, resource contention, or unexpected traffic spike on server-40", "re
+2026-07-09 20:42:53.353 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:53.353 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:53.353 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:53.354 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:53.354 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:53.354 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:42:57.311 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QMD336GRYD8VPF5MD2538
+2026-07-09 20:42:57.311 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 98.89% is critically elevated, approximately 3.3x above the expected baseline of 30%, indicating severe resource exhaustion on server-40 likely c
+2026-07-09 20:42:57.311 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:42:57.312 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:42:57.312 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:42:57.313 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:42:57.313 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:42:57.313 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:43:00.724 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QMGZE9BPCJAG1VE55455X
+2026-07-09 20:43:00.725 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {
+    "severity": "HIGH",
+    "root_cause": "CPU utilization on server-40 is critically elevated at 92.18%, more than 3x the expected baseline of 30%, indicating a runaway process, resource contention
+2026-07-09 20:43:00.725 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:43:00.725 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:43:00.725 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:43:00.726 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:43:00.726 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:43:00.726 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:43:04.420 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QMM9P7E1E7D7YEGBTJ1TX
+2026-07-09 20:43:04.421 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 103.17% is 3.4x above the expected baseline of 30%, indicating severe resource exhaustion likely caused by a runaway process, traffic spike, or r
+2026-07-09 20:43:04.421 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:43:04.421 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:43:04.421 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:43:04.422 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:43:04.422 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:43:04.422 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:43:07.710 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QMQZS071QR6STR0R9R5SP
+2026-07-09 20:43:07.710 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization at 88.5% is nearly 3x the expected baseline of 30%, indicating a runaway process, resource contention, or unexpected traffic spike on server-40", "r
+2026-07-09 20:43:07.710 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:43:07.710 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:43:07.710 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:43:07.711 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:43:07.712 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:43:07.712 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:43:12.534 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QMV4MY4C0RE957ZMNQX9J
+2026-07-09 20:43:12.535 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-40 is at 85.68%, nearly 3x the expected baseline of 30%, indicating a sustained high-load condition likely caused by a runaway process, tr
+2026-07-09 20:43:12.535 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:43:12.535 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:43:12.535 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:43:12.536 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:43:12.536 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:43:12.536 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:43:15.887 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QMZTGSM2EAWHNBW7XXR2R
+2026-07-09 20:43:15.887 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-40 is at 88.28%, nearly 3x the expected baseline of 30%, indicating a runaway process, traffic spike, or resource contention", "recommenda
+2026-07-09 20:43:15.887 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:43:15.887 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:43:15.887 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+2026-07-09 20:43:15.887 | INFO     | services.lava_service:analyze_incident:72 - 🌊 Sending request to Lava...
+2026-07-09 20:43:15.887 | DEBUG    | services.lava_service:analyze_incident:73 -    URL: https://api.lavapayments.com/v1/forward?u=https://api.anthropic.com/v1/messages
+2026-07-09 20:43:15.887 | DEBUG    | services.lava_service:analyze_incident:74 -    Model: claude-sonnet-4-6
+2026-07-09 20:43:19.354 | INFO     | services.lava_service:analyze_incident:93 - ✅ Lava Request ID: req_01KX4QN3389XPA44EHZVYVC0G2
+2026-07-09 20:43:19.355 | DEBUG    | services.lava_service:analyze_incident:110 - Claude response: {"severity": "HIGH", "root_cause": "CPU utilization on server-40 is at 86.8%, nearly 3x the expected baseline of 30%, indicating abnormal process load or runaway workload", "recommendation": "SCALE_UP
+2026-07-09 20:43:19.355 | INFO     | services.lava_service:analyze_incident:143 - ✅ Claude analysis successful!
+2026-07-09 20:43:19.355 | INFO     | services.lava_service:analyze_incident:144 -    Recommendation: SCALE_UP
+2026-07-09 20:43:19.355 | INFO     | services.lava_service:analyze_incident:145 -    Confidence: 0.90
+# Experiment 1 - Rule-Based Baseline vs. LLM Response Agent
+
+- N per scenario: **50**, seed `42`
+- LLM side ran: **yes — `claude-sonnet-4-6`** (paper's `claude-3-5-sonnet-20240620 (retired 2025-10-28)`)
+- Ground-truth correct actions (paper's table): S1 Faulty Update→`ROLLBACK`, S2 Zone Failure→`FAILOVER`, S3 Memory Leak→`RESTART/SCALE_UP`, S4 Cascading Failure→`ISOLATE/FAILOVER`
+
+## Per-scenario
+
+| Scenario | Correct | Rule success (95% CI) | Rule wrong-action | Rule miss | Consolidation | LLM success (95% CI) | LLM wrong-action |
+|---|---|---|---|---|---|---|---|
+| S1 Faulty Update | `ROLLBACK` | 0.860 [0.738, 0.930] | 0.000 | 0.140 | 0.00:1 | 0.980 [0.895, 0.996] | 0.000 |
+| S2 Zone Failure | `FAILOVER` | 0.000 [0.000, 0.071] | 1.000 | 0.000 | 2.00:1 | 0.000 [0.000, 0.071] | 0.980 |
+| S3 Memory Leak | `RESTART/SCALE_UP` | 1.000 [0.929, 1.000] | 0.000 | 0.000 | 1.00:1 | 0.680 [0.542, 0.792] | 0.000 |
+| S4 Cascading Failure | `ISOLATE/FAILOVER` | 0.000 [0.000, 0.071] | 1.000 | 0.000 | 4.00:1 | 0.000 [0.000, 0.071] | 0.980 |
+
+## Aggregated (pooled across all four scenarios)
+
+| Agent | Success rate (95% Wilson CI) | Wrong-action | Miss |
+|---|---|---|---|
+| Rule-based | 0.465 [0.397, 0.534] (93/200) | 0.500 | 0.035 |
+| LLM (claude-sonnet-4-6) | 0.415 [0.349, 0.484] (83/200) | 0.490 | 0.095 |
+
+## Notes
+
+- **False-positive rate** is intentionally not reported here: every trial is a real incident. It is measured by the Experiment 3 steady-state (zero-failure) harness.
+- A per-alert threshold rule structurally cannot emit `FAILOVER`/`ISOLATE` (needs cross-system context), so it cannot score on scenarios whose correct action is zone-level. This is a finding, not a bug.
+

@@ -1,0 +1,5 @@
+scenario,correct_action,rule_success_rate,rule_success_ci,rule_wrong_action_rate,rule_miss_rate,consolidation_ratio,llm_success_rate,llm_wrong_action_rate
+S1 Faulty Update,ROLLBACK,0.860,"[0.738,0.930]",0.000,0.140,0.00,0.980,0.000
+S2 Zone Failure,FAILOVER,0.000,"[0.000,0.071]",1.000,0.000,2.00,0.000,0.980
+S3 Memory Leak,RESTART/SCALE_UP,1.000,"[0.929,1.000]",0.000,0.000,1.00,0.680,0.000
+S4 Cascading Failure,ISOLATE/FAILOVER,0.000,"[0.000,0.071]",1.000,0.000,4.00,0.000,0.980

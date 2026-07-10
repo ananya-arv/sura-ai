@@ -1,0 +1,130 @@
+{
+  "config": {
+    "experiment": "exp3_extended",
+    "generated_at": "2026-07-10T00:49:13.682758+00:00",
+    "llm_model": "claude-sonnet-4-6",
+    "table2_source": "results/exp1_rule_based/aggregate.json"
+  },
+  "table2_extended_trials": {
+    "model": "claude-sonnet-4-6",
+    "n_per_scenario": 50,
+    "scenarios": {
+      "faulty_update": {
+        "label": "S1 Faulty Update",
+        "correct_action": [
+          "ROLLBACK"
+        ],
+        "llm": {
+          "n": 50,
+          "success": 49,
+          "wrong": 0,
+          "miss": 1,
+          "success_rate": 0.98,
+          "success_ci_low": 0.8950455641036219,
+          "success_ci_high": 0.9964607407283539,
+          "success_ci_pretty": "0.980 [0.895, 0.996] (49/50)",
+          "wrong_action_rate": 0.0,
+          "miss_rate": 0.02
+        }
+      },
+      "zone_failure": {
+        "label": "S2 Zone Failure",
+        "correct_action": [
+          "FAILOVER"
+        ],
+        "llm": {
+          "n": 50,
+          "success": 0,
+          "wrong": 49,
+          "miss": 1,
+          "success_rate": 0.0,
+          "success_ci_low": 6.938893903907228e-18,
+          "success_ci_high": 0.07134759913335872,
+          "success_ci_pretty": "0.000 [0.000, 0.071] (0/50)",
+          "wrong_action_rate": 0.98,
+          "miss_rate": 0.02
+        }
+      },
+      "memory_leak": {
+        "label": "S3 Memory Leak",
+        "correct_action": [
+          "RESTART",
+          "SCALE_UP"
+        ],
+        "llm": {
+          "n": 50,
+          "success": 34,
+          "wrong": 0,
+          "miss": 16,
+          "success_rate": 0.68,
+          "success_ci_low": 0.5418970269185592,
+          "success_ci_high": 0.7924178373934316,
+          "success_ci_pretty": "0.680 [0.542, 0.792] (34/50)",
+          "wrong_action_rate": 0.0,
+          "miss_rate": 0.32
+        }
+      },
+      "cascading_failure": {
+        "label": "S4 Cascading Failure",
+        "correct_action": [
+          "ISOLATE",
+          "FAILOVER"
+        ],
+        "llm": {
+          "n": 50,
+          "success": 0,
+          "wrong": 49,
+          "miss": 1,
+          "success_rate": 0.0,
+          "success_ci_low": 6.938893903907228e-18,
+          "success_ci_high": 0.07134759913335872,
+          "success_ci_pretty": "0.000 [0.000, 0.071] (0/50)",
+          "wrong_action_rate": 0.98,
+          "miss_rate": 0.02
+        }
+      }
+    },
+    "aggregate": {
+      "n": 200,
+      "success": 83,
+      "wrong": 98,
+      "miss": 19,
+      "success_rate": 0.415,
+      "success_ci_low": 0.34894285449757567,
+      "success_ci_high": 0.4842608509865596,
+      "success_ci_pretty": "0.415 [0.349, 0.484] (83/200)",
+      "wrong_action_rate": 0.49,
+      "miss_rate": 0.095
+    }
+  },
+  "steady_state_false_positive": {
+    "params": {
+      "n_systems": 10,
+      "cycles": 360,
+      "interval_s": 5,
+      "sim_seconds": 1800,
+      "sim_minutes": 30.0,
+      "cpu_sigma": 6.0,
+      "mem_sigma": 6.0,
+      "transient_prob": 0.005,
+      "transient_mult_range": [
+        2.2,
+        3.0
+      ],
+      "seed": 42
+    },
+    "totals": {
+      "total_polls": 3600,
+      "transients_injected": 16,
+      "false_positive_alerts": 17,
+      "escalated_to_response": 17,
+      "llm_false_remediations": 6,
+      "llm_correctly_abstained": 11
+    },
+    "rates": {
+      "fp_alerts_per_hour": 34.0,
+      "false_remediations_per_hour": 12.0,
+      "fp_per_1000_polls": 4.722222222222222
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "response_agent": {
+    "name": "response_agent",
+    "address": "agent1qf5r6x0v8rqzf7v9m2n489fugfzjqf2pneuxn5t6k5vvatx53cwy6ssmf86",
+    "port": 8003,
+    "capabilities": [
+      "incident_response",
+      "lava_ai_required",
+      "autonomous_recovery"
+    ],
+    "status": "active"
+  },
+  "monitoring_agent": {
+    "name": "monitoring_agent",
+    "address": "agent1qv549fdx6ppux6ufpu5f5sz0y07smcv5dxhgy7lkrxs4c7gzkk9luaddx2s",
+    "port": 8002,
+    "capabilities": [
+      "monitoring",
+      "anomaly_detection",
+      "real_time_polling"
+    ],
+    "status": "active"
+  }
+}

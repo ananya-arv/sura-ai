@@ -1,4 +1,5 @@
 from uagents import Context, Model
+import os
 from agents.base_agent import BaseSuraAgent
 from agents.messages import SystemMetrics, AnomalyAlert  # ← CHANGE THIS
 import asyncio
@@ -35,7 +36,7 @@ class MonitoringAgent(BaseSuraAgent):
         load_dotenv()
         super().__init__(
             name="monitoring_agent",
-            seed="monitoring_seed_phrase_67890",
+            seed=os.getenv("MONITORING_SEED_PHRASE"),
             port=8002,
             capabilities=["monitoring", "anomaly_detection", "real_time_polling"]  # ADD THIS
         )

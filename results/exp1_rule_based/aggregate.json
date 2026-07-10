@@ -1,0 +1,210 @@
+{
+  "config": {
+    "experiment": "exp1_rule_based",
+    "generated_at": "2026-07-10T00:43:19.359324+00:00",
+    "n_per_scenario": 50,
+    "master_seed": 42,
+    "llm_ran": true,
+    "llm_model": "claude-sonnet-4-6",
+    "paper_model": "claude-3-5-sonnet-20240620 (retired 2025-10-28)",
+    "ground_truth": {
+      "faulty_update": [
+        "ROLLBACK"
+      ],
+      "zone_failure": [
+        "FAILOVER"
+      ],
+      "memory_leak": [
+        "RESTART",
+        "SCALE_UP"
+      ],
+      "cascading_failure": [
+        "ISOLATE",
+        "FAILOVER"
+      ]
+    },
+    "ground_truth_tentative": false,
+    "thresholds": {
+      "cpu_ratio": 2.0,
+      "mem_ratio": 1.8,
+      "error_count_limit": 10,
+      "canary_rollback_er": 0.05,
+      "canary_investigate_er": 0.01
+    },
+    "false_positive_note": "Not measurable here: every trial is a real incident. False-positive / false-remediation rate is measured by the Experiment 3 steady-state (zero-failure) harness."
+  },
+  "per_scenario": {
+    "faulty_update": {
+      "label": "S1 Faulty Update",
+      "correct_action": [
+        "ROLLBACK"
+      ],
+      "rule_based": {
+        "n": 50,
+        "success": 43,
+        "wrong": 0,
+        "miss": 7,
+        "success_rate": 0.86,
+        "success_ci_low": 0.7381380628941446,
+        "success_ci_high": 0.9304916657298371,
+        "success_ci_pretty": "0.860 [0.738, 0.930] (43/50)",
+        "wrong_action_rate": 0.0,
+        "miss_rate": 0.14
+      },
+      "consolidation": {
+        "alerts_in": 0,
+        "actions_out": 0,
+        "ratio": 0.0
+      },
+      "llm": {
+        "n": 50,
+        "success": 49,
+        "wrong": 0,
+        "miss": 1,
+        "success_rate": 0.98,
+        "success_ci_low": 0.8950455641036219,
+        "success_ci_high": 0.9964607407283539,
+        "success_ci_pretty": "0.980 [0.895, 0.996] (49/50)",
+        "wrong_action_rate": 0.0,
+        "miss_rate": 0.02
+      },
+      "llm_calls": 50
+    },
+    "zone_failure": {
+      "label": "S2 Zone Failure",
+      "correct_action": [
+        "FAILOVER"
+      ],
+      "rule_based": {
+        "n": 50,
+        "success": 0,
+        "wrong": 50,
+        "miss": 0,
+        "success_rate": 0.0,
+        "success_ci_low": 6.938893903907228e-18,
+        "success_ci_high": 0.07134759913335872,
+        "success_ci_pretty": "0.000 [0.000, 0.071] (0/50)",
+        "wrong_action_rate": 1.0,
+        "miss_rate": 0.0
+      },
+      "consolidation": {
+        "alerts_in": 3300,
+        "actions_out": 1650,
+        "ratio": 2.0
+      },
+      "llm": {
+        "n": 50,
+        "success": 0,
+        "wrong": 49,
+        "miss": 1,
+        "success_rate": 0.0,
+        "success_ci_low": 6.938893903907228e-18,
+        "success_ci_high": 0.07134759913335872,
+        "success_ci_pretty": "0.000 [0.000, 0.071] (0/50)",
+        "wrong_action_rate": 0.98,
+        "miss_rate": 0.02
+      },
+      "llm_calls": 50
+    },
+    "memory_leak": {
+      "label": "S3 Memory Leak",
+      "correct_action": [
+        "RESTART",
+        "SCALE_UP"
+      ],
+      "rule_based": {
+        "n": 50,
+        "success": 50,
+        "wrong": 0,
+        "miss": 0,
+        "success_rate": 1.0,
+        "success_ci_low": 0.9286524008666414,
+        "success_ci_high": 1.0,
+        "success_ci_pretty": "1.000 [0.929, 1.000] (50/50)",
+        "wrong_action_rate": 0.0,
+        "miss_rate": 0.0
+      },
+      "consolidation": {
+        "alerts_in": 50,
+        "actions_out": 50,
+        "ratio": 1.0
+      },
+      "llm": {
+        "n": 50,
+        "success": 34,
+        "wrong": 0,
+        "miss": 16,
+        "success_rate": 0.68,
+        "success_ci_low": 0.5418970269185592,
+        "success_ci_high": 0.7924178373934316,
+        "success_ci_pretty": "0.680 [0.542, 0.792] (34/50)",
+        "wrong_action_rate": 0.0,
+        "miss_rate": 0.32
+      },
+      "llm_calls": 50
+    },
+    "cascading_failure": {
+      "label": "S4 Cascading Failure",
+      "correct_action": [
+        "ISOLATE",
+        "FAILOVER"
+      ],
+      "rule_based": {
+        "n": 50,
+        "success": 0,
+        "wrong": 50,
+        "miss": 0,
+        "success_rate": 0.0,
+        "success_ci_low": 6.938893903907228e-18,
+        "success_ci_high": 0.07134759913335872,
+        "success_ci_pretty": "0.000 [0.000, 0.071] (0/50)",
+        "wrong_action_rate": 1.0,
+        "miss_rate": 0.0
+      },
+      "consolidation": {
+        "alerts_in": 2000,
+        "actions_out": 500,
+        "ratio": 4.0
+      },
+      "llm": {
+        "n": 50,
+        "success": 0,
+        "wrong": 49,
+        "miss": 1,
+        "success_rate": 0.0,
+        "success_ci_low": 6.938893903907228e-18,
+        "success_ci_high": 0.07134759913335872,
+        "success_ci_pretty": "0.000 [0.000, 0.071] (0/50)",
+        "wrong_action_rate": 0.98,
+        "miss_rate": 0.02
+      },
+      "llm_calls": 50
+    }
+  },
+  "aggregate": {
+    "rule_based": {
+      "n": 200,
+      "success": 93,
+      "wrong": 100,
+      "miss": 7,
+      "success_rate": 0.465,
+      "success_ci_low": 0.3971856415700402,
+      "success_ci_high": 0.5341335312763685,
+      "success_ci_pretty": "0.465 [0.397, 0.534] (93/200)",
+      "wrong_action_rate": 0.5,
+      "miss_rate": 0.035
+    },
+    "llm": {
+      "n": 200,
+      "success": 83,
+      "wrong": 98,
+      "miss": 19,
+      "success_rate": 0.415,
+      "success_ci_low": 0.34894285449757567,
+      "success_ci_high": 0.4842608509865596,
+      "success_ci_pretty": "0.415 [0.349, 0.484] (83/200)",
+      "wrong_action_rate": 0.49,
+      "miss_rate": 0.095
+    }
+  }
+}

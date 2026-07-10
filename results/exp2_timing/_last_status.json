@@ -1,0 +1,10 @@
+{
+  "incident_id": "INC-zone_failure-12-3d493a",
+  "status": "RESOLVED",
+  "title": "SCALE_UP - timing trial",
+  "description": "Automated SCALE_UP",
+  "affected_services": [
+    "server-0"
+  ],
+  "timestamp": 1783644484.1991339
+}

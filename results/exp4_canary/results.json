@@ -1,0 +1,205 @@
+{
+  "config": {
+    "experiment": "exp4_canary",
+    "generated_at": "2026-07-10T00:52:17.071783+00:00",
+    "per_case": 10,
+    "seed": 42,
+    "llm_model": "claude-sonnet-4-6",
+    "cases": {
+      "clean": {
+        "error_rate_band": [
+          0.0,
+          0.005
+        ],
+        "is_faulty": false,
+        "is_clean": true
+      },
+      "borderline": {
+        "error_rate_band": [
+          0.005,
+          0.01
+        ],
+        "is_faulty": false,
+        "is_clean": false
+      },
+      "faulty_mild": {
+        "error_rate_band": [
+          0.011,
+          0.03
+        ],
+        "is_faulty": true,
+        "is_clean": false
+      },
+      "faulty_moderate": {
+        "error_rate_band": [
+          0.03,
+          0.08
+        ],
+        "is_faulty": true,
+        "is_clean": false
+      },
+      "faulty_severe": {
+        "error_rate_band": [
+          0.15,
+          0.3
+        ],
+        "is_faulty": true,
+        "is_clean": false
+      }
+    }
+  },
+  "per_case": {
+    "clean": {
+      "n": 10,
+      "is_faulty": false,
+      "is_clean": true,
+      "rule": {
+        "blocked": 0,
+        "rollback": 0,
+        "deploy": 10,
+        "block_rate": 0.0,
+        "rollback_rate": 0.0,
+        "mean_confidence": null
+      },
+      "llm": {
+        "blocked": 6,
+        "rollback": 0,
+        "deploy": 4,
+        "block_rate": 0.6,
+        "rollback_rate": 0.0,
+        "mean_confidence": 0.775
+      }
+    },
+    "borderline": {
+      "n": 10,
+      "is_faulty": false,
+      "is_clean": false,
+      "rule": {
+        "blocked": 0,
+        "rollback": 0,
+        "deploy": 10,
+        "block_rate": 0.0,
+        "rollback_rate": 0.0,
+        "mean_confidence": null
+      },
+      "llm": {
+        "blocked": 10,
+        "rollback": 0,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 0.0,
+        "mean_confidence": 0.738
+      }
+    },
+    "faulty_mild": {
+      "n": 10,
+      "is_faulty": true,
+      "is_clean": false,
+      "rule": {
+        "blocked": 10,
+        "rollback": 0,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 0.0,
+        "mean_confidence": null
+      },
+      "llm": {
+        "blocked": 10,
+        "rollback": 3,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 0.3,
+        "mean_confidence": 0.841
+      }
+    },
+    "faulty_moderate": {
+      "n": 10,
+      "is_faulty": true,
+      "is_clean": false,
+      "rule": {
+        "blocked": 10,
+        "rollback": 7,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 0.7,
+        "mean_confidence": null
+      },
+      "llm": {
+        "blocked": 10,
+        "rollback": 10,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 1.0,
+        "mean_confidence": 0.93
+      }
+    },
+    "faulty_severe": {
+      "n": 10,
+      "is_faulty": true,
+      "is_clean": false,
+      "rule": {
+        "blocked": 10,
+        "rollback": 10,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 1.0,
+        "mean_confidence": null
+      },
+      "llm": {
+        "blocked": 10,
+        "rollback": 10,
+        "deploy": 0,
+        "block_rate": 1.0,
+        "rollback_rate": 1.0,
+        "mean_confidence": 0.9730000000000001
+      }
+    }
+  },
+  "summary": {
+    "rule": {
+      "prevention_rate": {
+        "successes": 30,
+        "trials": 30,
+        "rate": 1.0,
+        "ci_low": 0.8864866068260312,
+        "ci_high": 0.9999999999999999,
+        "z": 1.959963984540054
+      },
+      "prevention_pretty": "1.000 [0.886, 1.000] (30/30)",
+      "false_rollback_rate": {
+        "successes": 0,
+        "trials": 10,
+        "rate": 0.0,
+        "ci_low": 0.0,
+        "ci_high": 0.2775327998628892,
+        "z": 1.959963984540054
+      },
+      "false_rollback_pretty": "0.000 [0.000, 0.278] (0/10)"
+    },
+    "llm": {
+      "prevention_rate": {
+        "successes": 30,
+        "trials": 30,
+        "rate": 1.0,
+        "ci_low": 0.8864866068260312,
+        "ci_high": 0.9999999999999999,
+        "z": 1.959963984540054
+      },
+      "prevention_pretty": "1.000 [0.886, 1.000] (30/30)",
+      "false_rollback_rate": {
+        "successes": 6,
+        "trials": 10,
+        "rate": 0.6,
+        "ci_low": 0.31267376973365824,
+        "ci_high": 0.8318196702937638,
+        "z": 1.959963984540054
+      },
+      "false_rollback_pretty": "0.600 [0.313, 0.832] (6/10)"
+    }
+  },
+  "decision_boundary": {
+    "max_error_rate_deployed": 0.0027438661080822803,
+    "min_error_rate_blocked": 0.00025308155754520336,
+    "stated_threshold": 0.01
+  }
+}
